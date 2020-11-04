@@ -1,29 +1,34 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar'
+import Cards from './components/Cards'
+import Hub from './components/Hub'
+import Signup from './components/Signup'
+import Login from './components/Login'
+import About from './components/About'
+import NoMatch from './components/NoMatch'
+import Footer from './components/Footer'
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { ApolloProvider } from '@apollo/react-hooks';
-import ApolloClient from 'apollo-boost';
+// import { ApolloProvider } from '@apollo/react-hooks';
+// import ApolloClient from 'apollo-boost';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Idol Initiatives</h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Cards} />
+          <Route exact path="/hub" component={Hub} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/about" component={About} />
+          <Route component={NoMatch} />
+        </Switch>
+      </Router>
+      <Footer />
+    </>
   );
 }
 
