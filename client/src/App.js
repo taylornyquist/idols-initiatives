@@ -2,6 +2,7 @@
 import './App.css';
 import Navbar from './components/Navbar'
 import Cards from './components/Cards'
+import Hub from './components/Hub'
 import Signup from './components/Signup'
 import Login from './components/Login'
 import About from './components/About'
@@ -19,6 +20,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Cards} />
+          <Route exact path="/hub" component={Hub} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/about" component={About} />

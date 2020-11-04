@@ -4,6 +4,11 @@ import { Container, Row, Col, Form, Button, Jumbotron } from 'react-bootstrap';
 
 const Signup = () => {
 
+    const handleSigup = () => {
+        console.log("click");
+        // insert dispatch to signup user here
+    };
+
     return (
         <>
             <Jumbotron>
@@ -34,9 +39,9 @@ const Signup = () => {
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control type="password" placeholder="Password" />
                                 </Form.Group>
-                                <Button variant="info" type="submit">
+                                <Button onClick={handleSigup} variant="info" type="submit">
                                     Submit
-                        </Button>
+                                </Button>
                             </Form>
                         </Col>
                     </Row>

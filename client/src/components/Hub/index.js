@@ -1,22 +1,20 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
-import Jumbo from '../Jumbotron'
 import { Container, Row, Button, Card, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import idols from '../../utils/seed'
 
-const Cards = () => {
+const Hub = () => {
 
-    const addToHub = () => {
+    const removeFromHub = () => {
         console.log("click");
-        // insert dispatch to user's hub here
+        // insert dispatch to remove from user's hub here
     };
 
     return (
 
         <>
-            <Jumbo />
 
-            <Container>
+            <Container className="mt-3">
                 <Row>
 
                     {idols ? (
@@ -40,7 +38,7 @@ const Cards = () => {
                                                 Learn More
                                         </Card.Link>
                                         </Card.Body>
-                                        <Button onClick={addToHub} variant="info">Add To Hub</Button>{' '}
+                                        <Button onClick={removeFromHub} variant="info">Remove From Hub</Button>{' '}
                                     </Card>
                                 </Col>
 
@@ -55,6 +53,6 @@ const Cards = () => {
     );
 };
 
-export default Cards;
+export default Hub;
 
 
