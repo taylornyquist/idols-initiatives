@@ -54,6 +54,22 @@ const idols = [
         city: "Akron, OH",
         url: "https://kaepernick7.com/",
         image: "colin.jpg"
+    },
+    {
+        name: "Derek Jeter",
+        charity: "Turn 2 Foundation",
+        description: "Recognizing the life-changing importance of education, The LeBron James Family Foundation invest its time, resources, and attention in the kids of LeBron's hometown of Akron, Ohio.",
+        city: "Akron, OH",
+        url: "https://www.mlb.com/turn-2-foundation",
+        image: "derek.jpg"
+    },
+    {
+        name: "Peyton Manning",
+        charity: "PeyBack Foundation",
+        description: "The PeyBack Foundation reaches out to children and families of all backgrounds. Children need opportunities through which they can learn and grow.  The Foundation strives to make these opportunities available to children who might not otherwise have the chance to participate and looks strongly upon abused and neglected children, Boys & Girls clubs, after-school programs, summer camps, and foster children.",
+        city: "Akron, OH",
+        url: "http://www.peytonmanning.com/",
+        image: "peyton.jpg"
     }
 ];
 

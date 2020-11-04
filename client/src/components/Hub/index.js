@@ -14,14 +14,14 @@ const Hub = () => {
 
         <>
 
-            <Container className="mt-3">
+            <Container fluid className="mt-3">
                 <Row>
 
                     {idols ? (
                         <>
                             {idols.map((idol) => (
 
-                                <Col md={4} key={idol.name} className="mb-3">
+                                <Col sm={12} md={6} lg={4} key={idol.name} className="mb-3">
                                     <Card style={{ width: '18rem' }}>
                                         <Card.Img variant="top" src={`/images/${idol.image}`} />
                                         <Card.Body>
