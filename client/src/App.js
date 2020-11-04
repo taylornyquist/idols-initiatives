@@ -1,19 +1,31 @@
 // import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar'
-import Jumbo from './components/Jumbotron'
 import Cards from './components/Cards'
+import Signup from './components/Signup'
+import Login from './components/Login'
+import About from './components/About'
+import NoMatch from './components/NoMatch'
+import Footer from './components/Footer'
 
-// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // import { ApolloProvider } from '@apollo/react-hooks';
 // import ApolloClient from 'apollo-boost';
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Jumbo />
-      <Cards />
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Cards} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/about" component={About} />
+          <Route component={NoMatch} />
+        </Switch>
+      </Router>
+      <Footer />
     </>
   );
 }

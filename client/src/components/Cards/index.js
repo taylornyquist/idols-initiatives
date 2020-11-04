@@ -1,5 +1,6 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
+import Jumbo from '../Jumbotron'
 import { Container, Row, Button, Card, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 const idols = [
@@ -74,45 +75,45 @@ const Cards = () => {
 
     return (
 
-        <Container>
-            <Row>
+        <>
+            <Jumbo />
 
-                {idols ? (
-                    <>
-                        {idols.map((idol) => (
+            <Container>
+                <Row>
 
-                            <Col md={4} key={idol.name} className="mb-3">
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src={`/images/${idol.image}`} />
-                                    <Card.Body>
-                                        <Card.Title>{idol.name}</Card.Title>
-                                        <Card.Text>
-                                            {idol.description}
-                                        </Card.Text>
-                                    </Card.Body>
-                                    <ListGroup className="list-group-flush">
-                                        <ListGroupItem>{idol.city}</ListGroupItem>
-                                    </ListGroup>
-                                    <Card.Body>
-                                        <Card.Link href={idol.url} target="_blank" rel="noopener noreferrer">
-                                            Learn More
+                    {idols ? (
+                        <>
+                            {idols.map((idol) => (
+
+                                <Col md={4} key={idol.name} className="mb-3">
+                                    <Card style={{ width: '18rem' }}>
+                                        <Card.Img variant="top" src={`/images/${idol.image}`} />
+                                        <Card.Body>
+                                            <Card.Title>{idol.name}</Card.Title>
+                                            <Card.Text>
+                                                {idol.description}
+                                            </Card.Text>
+                                        </Card.Body>
+                                        <ListGroup className="list-group-flush">
+                                            <ListGroupItem>{idol.city}</ListGroupItem>
+                                        </ListGroup>
+                                        <Card.Body>
+                                            <Card.Link href={idol.url} target="_blank" rel="noopener noreferrer">
+                                                Learn More
                                         </Card.Link>
-                                    </Card.Body>
-                                    <Button onClick={addToHub} variant="info">Add To Hub</Button>{' '}
-                                </Card>
-                            </Col>
+                                        </Card.Body>
+                                        <Button onClick={addToHub} variant="info">Add To Hub</Button>{' '}
+                                    </Card>
+                                </Col>
 
-                        ))}
-                    </>
-                ) : <h2>No Idols Yet</h2>}
+                            ))}
+                        </>
+                    ) : <h2>No Idols Yet</h2>}
 
-            </Row>
+                </Row>
 
-
-
-
-        </Container>
-
+            </Container>
+        </>
     );
 };
 
