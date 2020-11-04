@@ -12,7 +12,7 @@ const Jumbo = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate aliquid, possimus, voluptatem, itaque quisquam dolorem reiciendis accusamus laboriosam ullam fugiat blanditiis. Quaerat sunt et laudantium eum alias, deleniti cupiditate unde!
             </p>
             <p>
-                <Button variant="primary">Learn More</Button>
+                <Button href="/about" variant="info">Learn More</Button>
             </p>
         </Jumbotron>
 
