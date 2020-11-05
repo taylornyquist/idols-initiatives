@@ -1,8 +1,9 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 import Jumbo from '../Jumbotron'
-import { Container, Row, Button, Card, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Container, Row, Button, Card, CardDeck, ListGroup, ListGroupItem } from 'react-bootstrap';
 import idols from '../../utils/seed'
+import TwitterIcon from '@material-ui/icons/Twitter';
 
 const Cards = () => {
 
@@ -17,36 +18,46 @@ const Cards = () => {
             <Jumbo />
 
             <Container fluid>
-                <Row>
+                <Row className="ml-auto mr-auto">
+
+
+
 
                     {idols ? (
                         <>
                             {idols.map((idol) => (
 
-                                <Col sm={12} md={6} lg={4} key={idol.name} className="mb-3">
-                                    <Card style={{ width: '18rem' }}>
+                                <CardDeck sm={12} md={6} lg={4} xl={3} className=" ml-auto mr-auto" key={idol.name}>
+                                    <Card className="mr-4 mt-2 mb-4" style={{ width: '20rem' }}>
                                         <Card.Img variant="top" src={`/images/${idol.image}`} />
                                         <Card.Body>
                                             <Card.Title>{idol.name}</Card.Title>
-                                            <Card.Text>
-                                                {idol.description}
-                                            </Card.Text>
+                                            <Card.Title>{idol.charity}</Card.Title>
+                                            <Card.Text>{idol.description}</Card.Text>
                                         </Card.Body>
                                         <ListGroup className="list-group-flush">
-                                            <ListGroupItem>{idol.city}</ListGroupItem>
+                                            <ListGroupItem>{idol.hometown}</ListGroupItem>
                                         </ListGroup>
                                         <Card.Body>
-                                            <Card.Link href={idol.url} target="_blank" rel="noopener noreferrer">
+                                            <Card.Link href={idol.charity_url} target="_blank" rel="noopener noreferrer">
                                                 Learn More
-                                        </Card.Link>
+                                                </Card.Link>
+
+                                            {idol.twitter_url && (
+                                                <Card.Link className="float-right" href={idol.twitter_url} target="_blank" rel="noopener noreferrer">
+                                                    <TwitterIcon />
+                                                </Card.Link>
+                                            )}
+
                                         </Card.Body>
                                         <Button onClick={addToHub} variant="info">Add To Hub</Button>{' '}
                                     </Card>
-                                </Col>
+                                </CardDeck>
 
                             ))}
                         </>
                     ) : <h2>No Idols Yet</h2>}
+
 
                 </Row>
 
