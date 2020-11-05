@@ -27,7 +27,6 @@ const typeDefs = gql`
     username: String
     email: String
     idols: [Idol]
-    charities: [Charity]
     admin: String
   }
 
@@ -46,19 +45,17 @@ const typeDefs = gql`
   type Query {
     categories: [Category]
     idols(idol: ID, name: String): [Idol]
-    charity(_id: ID!): Charity
     user: User
+    me: User
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     login(username: String!, password: String!): Auth
-    addCharity(idol: [ID]!): Charity
-    addIdol(firstName: String!, lastName: String!, description: String, image: String): Idol
+    saveIdol(name: String!, description: String, image: String): Idol
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateIdol(firstName: String, lastName: String): Idol
   }
-
 
 `;
 
