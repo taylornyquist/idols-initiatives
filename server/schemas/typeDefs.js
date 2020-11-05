@@ -13,8 +13,11 @@ const typeDefs = gql`
     _id: ID
     name: String
     description: String
+    hometown: String
     image: String
     category: Category
+    charity_url: String
+    twitter_url: String
   }
 
   type User {
@@ -53,7 +56,6 @@ const typeDefs = gql`
     addIdol(firstName: String!, lastName: String!, description: String, image: String): Idol
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateIdol(firstName: String, lastName: String): Idol
-    updateCharity(name: String, description: String, name: String): Idol
   }
 
 
