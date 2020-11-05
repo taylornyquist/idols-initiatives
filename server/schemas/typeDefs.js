@@ -28,6 +28,7 @@ const typeDefs = gql`
     email: String
     idols: [Idol]
     charities: [Charity]
+    admin: String
   }
 
   type Charity {

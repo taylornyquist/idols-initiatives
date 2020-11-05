@@ -29,9 +29,6 @@ const idolSchema = new Schema({
     twitter_url: {
       type: String,
     },
-  });
+});
 
-
-const Idol = model('Idol', idolSchema);
-
-module.exports = Idol;
+module.exports = idolSchema;
