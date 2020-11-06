@@ -2,23 +2,35 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Category {
+type Idol {
+  _id: ID
+  name: String
+  charity: String
+  description: String
+  hometown: String
+  charity_url: String
+  image: String
+  twitter_url: String
+  idol_category: [Category]
+  }
+
+type Category {
       _id: ID
       name: String
     } 
+  
+  
 
   type Query {
       categories: [Category]
+      idols: [Idol]
     }
 `;
 
 module.exports = typeDefs
 // create our typeDefs
 // const typeDefs = gql`
-//   type Category {
-//     _id: ID
-//     name: String
-//   }
+// 
 
 //   type Idol {
 //     _id: ID

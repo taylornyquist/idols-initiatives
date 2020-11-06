@@ -1,4 +1,4 @@
-const { User, Category } = require('../models');
+const { User, Idol, Category } = require('../models');
 // const { AuthenticationError } = require('apollo-server-express');
 // const { signToken } = require('../utils/auth');
 
@@ -6,6 +6,9 @@ const resolvers = {
   Query: {
     categories: async () => {
       return Category.find()
+    },
+    idols: async () => {
+      return Idol.find()
     }
   }
 };
