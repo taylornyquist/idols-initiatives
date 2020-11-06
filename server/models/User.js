@@ -1,6 +1,8 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const idolSchema = require('./Idol');
+
 const userSchema = new Schema({
     firstName: {
       type: String,
@@ -27,10 +29,11 @@ const userSchema = new Schema({
       required: true,
       minlength: 5
     },
-    // idols: [Idol.schema],
-    // charities: [Charity.schema],
+    admin: {
+      type: String,
+    },
+    idols: [idolSchema]
   });
-
 
 const User = model('User', userSchema);
 
