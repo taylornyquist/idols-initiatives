@@ -4,17 +4,25 @@ const { User, Idol, Category } = require('../models');
 
 const resolvers = {
   Query: {
+    //find all categories
     categories: async () => {
       return Category.find()
     },
+    //find all idols
     idols: async () => {
       return Idol.find()
     },
+    //find idol by id
     idol: async(parent, { _id }) => {
       return Idol.findOne({ _id })
     },
+    //find all users
     users: async() => {
       return User.find()
+    },
+    // find user by id
+    user: async(parent, { _id }) => {
+      return User.findOne({_id})
     }
   }
 };

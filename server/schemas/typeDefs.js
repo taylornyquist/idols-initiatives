@@ -33,7 +33,8 @@ type User {
       categories: [Category]
       idols: [Idol]
       idol(_id: ID!): Idol
-      users: User
+      users: [User]
+      user(_id: ID!): User
     }
 `;
 

@@ -10,6 +10,7 @@ db.once('open', async () => {
     { name: 'Entrepreneur' }
   ]);
 
+  console.log('categories seeded')
 
   await Idol.deleteMany();
   
