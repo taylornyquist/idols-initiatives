@@ -5,8 +5,21 @@ import CategoryMenu from '../CategoryMenu'
 import { Container, Row, Button, Card, CardDeck, ListGroup, ListGroupItem } from 'react-bootstrap';
 import idols from '../../utils/seed'
 import TwitterIcon from '@material-ui/icons/Twitter';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Cards = () => {
+
+    const dispatch = useDispatch();
+    const state = useSelector(state => state);
+    const { currentCategory } = state;
+    // const currentCategory = 1;
+
+    function filterIdols() {
+        if (!currentCategory || currentCategory === 0) {
+            return idols;
+        }
+        return idols.filter(idol => idol.category_id === currentCategory);
+    };
 
     const addToHub = () => {
         console.log("click");
@@ -27,7 +40,7 @@ const Cards = () => {
 
                     {idols ? (
                         <>
-                            {idols.map((idol) => (
+                            {filterIdols().map((idol) => (
 
                                 <CardDeck sm={12} md={6} lg={4} xl={3} className=" ml-auto mr-auto" key={idol.name}>
                                     <Card className="mr-4 mt-2 mb-4" style={{ width: '20rem' }}>
