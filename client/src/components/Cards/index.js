@@ -1,6 +1,7 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 import Jumbo from '../Jumbotron'
+import CategoryMenu from '../CategoryMenu'
 import { Container, Row, Button, Card, CardDeck, ListGroup, ListGroupItem } from 'react-bootstrap';
 import idols from '../../utils/seed'
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -16,6 +17,7 @@ const Cards = () => {
 
         <>
             <Jumbo />
+            <CategoryMenu />
 
             <Container fluid>
                 <Row className="ml-auto mr-auto">
