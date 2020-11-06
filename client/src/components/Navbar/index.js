@@ -1,6 +1,7 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import MemeModal from '../MemeModal'
 
 const Navigation = () => {
 
@@ -24,13 +25,16 @@ const Navigation = () => {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">More deets</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
+                        <Nav.Link href="#deets">More Deets</Nav.Link>
+                        {/* <Nav.Link eventKey={2} href="#memes">
                             Dank memes
-                        </Nav.Link>
+                        </Nav.Link> */}
+                        <MemeModal />
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
+
+            
         </>
     );
 };

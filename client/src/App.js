@@ -17,17 +17,21 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={Cards} />
-          <Route exact path="/hub" component={Hub} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/about" component={About} />
-          <Route component={NoMatch} />
-        </Switch>
+        <div className="page-container">
+          <Navbar />
+          <div className="content-wrap">
+            <Switch>
+              <Route exact path="/" component={Cards} />
+              <Route exact path="/hub" component={Hub} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/about" component={About} />
+              <Route component={NoMatch} />
+            </Switch>
+          </div>
+          <Footer />
+        </div>
       </Router>
-      <Footer />
     </>
   );
 }
