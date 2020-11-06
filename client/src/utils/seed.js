@@ -159,7 +159,7 @@ const idols = [
         idol_category: "Musician"
     },
     {
-        id: 15,
+        id: 16,
         name: "Jon Bon Jovi",
         charity: "JBJ Soul Foundation",
         description: "Since 2006, the Jon Bon Jovi Soul Foundation has worked to break the cycle of hunger, poverty and homelessness through developing partnerships, creating programs and providing grant funding to support innovative community benefit organizations.",
