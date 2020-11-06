@@ -9,7 +9,7 @@ const Jumbo = () => {
         <Jumbotron>
             <h1>Idols Initiatives</h1>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate aliquid, possimus, voluptatem, itaque quisquam dolorem reiciendis accusamus laboriosam ullam fugiat blanditiis. Quaerat sunt et laudantium eum alias, deleniti cupiditate unde!
+                Our goal with Idols Initiatives is to create a central place to share and promote causes important to your favorite athletes, musicians and more.
             </p>
             <p>
                 <Button href="/about" variant="info">Learn More</Button>
