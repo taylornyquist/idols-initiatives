@@ -32,7 +32,8 @@ type User {
   type Query {
       categories: [Category]
       idols: [Idol]
-      users: [User]
+      idol(_id: ID!): Idol
+      users: User
     }
 `;
 
@@ -41,15 +42,6 @@ module.exports = typeDefs
 // const typeDefs = gql`
 // 
 
-//   type User {
-//     _id: ID
-//     firstName: String
-//     lastName: String
-//     username: String
-//     email: String
-//     idols: [Idol]
-//     admin: Number
-//   }
 
 //   type Charity {
 //     _id: ID

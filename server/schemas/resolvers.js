@@ -10,6 +10,9 @@ const resolvers = {
     idols: async () => {
       return Idol.find()
     },
+    idol: async(parent, { _id }) => {
+      return Idol.findOne({ _id })
+    },
     users: async() => {
       return User.find()
     }
