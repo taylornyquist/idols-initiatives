@@ -10,7 +10,7 @@ const idolSchema = new Schema({
     },
     charity:{
       type: String,
-      require: true,
+      required: true,
     },
     description: {
         type: String,

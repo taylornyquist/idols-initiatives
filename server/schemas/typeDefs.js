@@ -29,32 +29,33 @@ type User {
      idols: [Idol]
    }
 
-  type Query {
+type Auth {
+  token: ID
+  user: User
+} 
+
+type Query {
+      me: User
       categories: [Category]
       idols: [Idol]
       idol(_id: ID!): Idol
       users: [User]
       user(_id: ID!): User
     }
+
+type Mutation {
+      addUser(firstName: String!, lastName: String!, username: String!, email: String!, password: String!, admin: Int!): Auth
+      login(username: String!, password: String!): Auth
+      saveIdol(name: String!, charity: String!, description: String!, hometown: String!, charity_url: String! image: String, image: String, twitter_url: String, idol_category:String): Idol
+      }
 `;
 
 module.exports = typeDefs
 // create our typeDefs
 // const typeDefs = gql`
-// 
 
 
-//   type Charity {
-//     _id: ID
-//     name: String
-//     description: String
-//     url: String
-//   }
 
-//   type Auth {
-//     token: ID
-//     user: User
-//   }
 
 //   type Query {
 //     categories: [Category]
