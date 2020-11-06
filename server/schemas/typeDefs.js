@@ -19,11 +19,20 @@ type Category {
       name: String
     } 
   
-  
+type User {
+     _id: ID
+     firstName: String
+     lastName: String
+     username: String
+     email: String
+     admin: Int
+     idols: [Idol]
+   }
 
   type Query {
       categories: [Category]
       idols: [Idol]
+      users: [User]
     }
 `;
 
@@ -32,17 +41,6 @@ module.exports = typeDefs
 // const typeDefs = gql`
 // 
 
-//   type Idol {
-//     _id: ID
-//     name: String
-//     description: String
-//     hometown: String
-//     image: String
-//     category: Category
-//     charity_url: String
-//     twitter_url: String
-//   }
-
 //   type User {
 //     _id: ID
 //     firstName: String
@@ -50,7 +48,7 @@ module.exports = typeDefs
 //     username: String
 //     email: String
 //     idols: [Idol]
-//     admin: String
+//     admin: Number
 //   }
 
 //   type Charity {
