@@ -1,7 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const idolSchema = require('./Idol');
 
 const userSchema = new Schema({
     firstName: {
@@ -33,7 +32,12 @@ const userSchema = new Schema({
       type: Number,
       default: 0
     },
-    idols: [idolSchema]
+    idols: [
+      {
+      type: Schema.Types.ObjectId,
+      ref: "Idol"
+      }
+    ]
   });
 
 // set up pre-save middleware to create password

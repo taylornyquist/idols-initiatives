@@ -10,9 +10,10 @@ db.once('open', async () => {
     { name: 'Entrepreneur' }
   ]);
 
+
   await Idol.deleteMany();
   
-  const idols = await Idol.instertMany([
+  const idols = await Idol.insertMany([
     {
         name: "Lebron James",
         charity: "Lebron James Family Foundation",
@@ -180,9 +181,7 @@ db.once('open', async () => {
       password: "password123",
       admin: 1,
       idols: [
-           idols[1]._id, 
-           idols[4]._id,
-           idols[10]._id
+          idols[1]._id, idols[4]._id, idols[10]._id
       ]
   });
 
