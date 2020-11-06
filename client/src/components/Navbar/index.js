@@ -15,6 +15,7 @@ const Navigation = () => {
                         <Nav.Link href="/hub">My Hub</Nav.Link>
                         <Nav.Link href="/signup">Signup</Nav.Link>
                         <Nav.Link href="/login">Login</Nav.Link>
+                        <Nav.Link href="/add-idol">Add Idol</Nav.Link>
                         <Nav.Link href="/about">About</Nav.Link>
                         <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
