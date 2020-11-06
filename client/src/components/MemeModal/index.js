@@ -6,34 +6,67 @@ const charityMemes = [
     {
         id: 0,
         name: "Willy Wonka",
-        image: "/memes/willy-wonka.jpg" 
+        image: "/memes/willy-wonka.jpg"
     },
     {
         id: 1,
         name: "Baby",
-        image: "/memes/baby.jpg" 
+        image: "/memes/baby.jpg"
     },
     {
         id: 2,
         name: "Dr. Evil",
-        image: "/memes/dr-evil.jpg" 
+        image: "/memes/dr-evil.jpg"
     },
     {
         id: 3,
         name: "Joe Dirt",
-        image: "/memes/joe-dirt.jpg" 
+        image: "/memes/joe-dirt.jpg"
     },
     {
         id: 4,
         name: "Office Space",
-        image: "/memes/office-space.jpg" 
+        image: "/memes/office-space.jpg"
     },
     {
         id: 5,
         name: "Give A Penny",
-        image: "/memes/penny.jpg" 
+        image: "/memes/penny.jpg"
     }
 ];
+
+// const charityMemes2 = {
+//     0: {
+//         id: 0,
+//         name: "Willy Wonka",
+//         image: "/memes/willy-wonka.jpg"
+//     },
+//     1: {
+//         id: 1,
+//         name: "Baby",
+//         image: "/memes/baby.jpg"
+//     },
+//     2: {
+//         id: 2,
+//         name: "Dr. Evil",
+//         image: "/memes/dr-evil.jpg"
+//     },
+//     3: {
+//         id: 3,
+//         name: "Joe Dirt",
+//         image: "/memes/joe-dirt.jpg"
+//     },
+//     4: {
+//         id: 4,
+//         name: "Office Space",
+//         image: "/memes/office-space.jpg"
+//     },
+//     5: {
+//         id: 5,
+//         name: "Give A Penny",
+//         image: "/memes/penny.jpg"
+//     }
+// };
 
 const MemeModal = () => {
 
@@ -45,7 +78,7 @@ const MemeModal = () => {
         setTimeout(() => {
             increment();
         }, 100);
-        
+
     };
 
     const handleNextMeme = () => {
@@ -83,7 +116,7 @@ const MemeModal = () => {
 
             <Modal size="lg" show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Random Charity Meme</Modal.Title>
+                    <Modal.Title>Dank Charity Meme</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Container>

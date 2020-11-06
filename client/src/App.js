@@ -5,6 +5,7 @@ import Cards from './components/Cards'
 import Hub from './components/Hub'
 import Signup from './components/Signup'
 import Login from './components/Login'
+import AddIdol from './components/AddIdol'
 import About from './components/About'
 import NoMatch from './components/NoMatch'
 import Footer from './components/Footer'
@@ -25,6 +26,7 @@ function App() {
               <Route exact path="/hub" component={Hub} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/add-idol" component={AddIdol} />
               <Route exact path="/about" component={About} />
               <Route component={NoMatch} />
             </Switch>
