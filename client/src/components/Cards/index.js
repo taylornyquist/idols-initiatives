@@ -1,11 +1,17 @@
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { QUERY_ALL_IDOLS } from '../../utils/queries';
 // import { Link } from 'react-router-dom';
 import Jumbo from '../Jumbotron'
 import { Container, Row, Button, Card, CardDeck, ListGroup, ListGroupItem } from 'react-bootstrap';
-import idols from '../../utils/seed'
+// import idols from '../../utils/seed'
 import TwitterIcon from '@material-ui/icons/Twitter';
 
 const Cards = () => {
+
+    const {loading, data } = useQuery(QUERY_ALL_IDOLS);
+    const idols = data?.idols || [];
+    console.log(idols);
 
     const addToHub = () => {
         console.log("click");

@@ -1,3 +1,4 @@
+import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar'
@@ -11,12 +12,18 @@ import NoMatch from './components/NoMatch'
 import Footer from './components/Footer'
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import { ApolloProvider } from '@apollo/react-hooks';
-// import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:3001/graphql'
+});
+
 
 function App() {
   return (
     <>
+     <ApolloProvider client = {client}>
       <Router>
         <div className="min-vh-100 page-container">
           <Navbar />
@@ -34,6 +41,7 @@ function App() {
           <Footer />
         </div>
       </Router>
+     </ApolloProvider>
     </>
   );
 }
