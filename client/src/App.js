@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <Router>
-        <div className="page-container">
+        <div className="min-vh-100 page-container">
           <Navbar />
           <div className="content-wrap">
             <Switch>
