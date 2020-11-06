@@ -12,7 +12,6 @@ const Cards = () => {
     const dispatch = useDispatch();
     const state = useSelector(state => state);
     const { currentCategory } = state;
-    // const currentCategory = 1;
 
     function filterIdols() {
         if (!currentCategory || currentCategory === 0) {
@@ -34,9 +33,6 @@ const Cards = () => {
 
             <Container fluid>
                 <Row className="ml-auto mr-auto">
-
-
-
 
                     {idols ? (
                         <>
@@ -73,9 +69,7 @@ const Cards = () => {
                         </>
                     ) : <h2>No Idols Yet</h2>}
 
-
                 </Row>
-
             </Container>
         </>
     );
