@@ -19,29 +19,45 @@ const client = new ApolloClient({
   uri: 'http://localhost:3001/graphql'
 });
 
+import { Provider } from 'react-redux';
+import store from './utils/store';
+
+const client = new ApolloClient({
+  request: (operation) => {
+    const token = localStorage.getItem('id_token')
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    })
+  },
+  uri: '/graphql',
+});
 
 function App() {
   return (
     <>
-     <ApolloProvider client = {client}>
-      <Router>
-        <div className="min-vh-100 page-container">
-          <Navbar />
-          <div className="content-wrap">
-            <Switch>
-              <Route exact path="/" component={Cards} />
-              <Route exact path="/hub" component={Hub} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/add-idol" component={AddIdol} />
-              <Route exact path="/about" component={About} />
-              <Route component={NoMatch} />
-            </Switch>
+      <ApolloProvider client={client}>
+        <Router>
+          <div className="min-vh-100 page-container">
+            <Provider store={store}>
+              <Navbar />
+              <div className="content-wrap">
+                <Switch>
+                  <Route exact path="/" component={Cards} />
+                  <Route exact path="/hub" component={Hub} />
+                  <Route exact path="/signup" component={Signup} />
+                  <Route exact path="/login" component={Login} />
+                  <Route exact path="/add-idol" component={AddIdol} />
+                  <Route exact path="/about" component={About} />
+                  <Route component={NoMatch} />
+                </Switch>
+              </div>
+              <Footer />
+            </Provider>
           </div>
-          <Footer />
-        </div>
-      </Router>
-     </ApolloProvider>
+        </Router>
+      </ApolloProvider>
     </>
   );
 }
