@@ -91,10 +91,10 @@ const MemeModal = () => {
     const increment = () => {
         setMemeId(prevMemeId => {
             if (prevMemeId === charityMemes.length - 1) {
-                console.log(0);
+                // console.log(0);
                 return 0;
             } else {
-                console.log(prevMemeId + 1);
+                // console.log(prevMemeId + 1);
                 return prevMemeId + 1;
             }
         })
