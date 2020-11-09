@@ -85,8 +85,8 @@ function CategoryMenu() {
                     </Col>
 
                     {categories.map(category => (
-                        <Col md={3} >
-                            <Button key={category._id} className="mr-3 mb-3 px-3" variant="secondary" block onClick={() => {
+                        <Col md={3} key={category._id} >
+                            <Button className="mr-3 mb-3 px-3" variant="secondary" block onClick={() => {
                                 // console.log("clicked" + category.name);
                                 // handleClick(category.id);
                                 handleClick(category._id);
