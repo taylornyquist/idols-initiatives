@@ -11,23 +11,23 @@ type Idol {
   charity_url: String
   image: String
   twitter_url: String
-  idol_category: [Category]
+  idol_category: Category
   }
 
 type Category {
-      _id: ID
-      name: String
-    } 
-  
+  _id: ID
+  name: String
+}
+
 type User {
-     _id: ID
-     firstName: String
-     lastName: String
-     username: String
-     email: String
-     admin: Int
-     idols: [Idol]
-   }
+  _id: ID
+  firstName: String
+  lastName: String
+  username: String
+  email: String
+  admin: Int
+  idols: [Idol]
+}
 
 type Auth {
   token: ID

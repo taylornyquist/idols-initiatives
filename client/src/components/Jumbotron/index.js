@@ -6,7 +6,7 @@ const Jumbo = () => {
 
     return (
 
-        <Jumbotron>
+        <Jumbotron className="py-4">
             <h1>Idols Initiatives</h1>
             <p>
                 Our goal with Idols Initiatives is to create a central place to share and promote causes important to your favorite athletes, musicians and more.

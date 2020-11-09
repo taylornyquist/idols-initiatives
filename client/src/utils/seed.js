@@ -8,7 +8,8 @@ const idols = [
         charity_url: "https://www.lebronjamesfamilyfoundation.org/",
         image: "lebron.jpg",
         twitter_url: "https://twitter.com/KingJames",
-        idol_category: "Athlete"
+        idol_category: "Athlete",
+        category_id: 1
     },
     {
         id: 2,
@@ -19,7 +20,8 @@ const idols = [
         charity_url: "https://www.savethechildren.org/",
         image: "cristiano.jpg",
         twitter_url: "https://twitter.com/Cristiano",
-        idol_category: "Athlete"
+        idol_category: "Athlete",
+        category_id: 1
     },
     {
         id: 3,
@@ -30,7 +32,8 @@ const idols = [
         charity_url: "https://www.unicef.org/",
         image: "serena.jpg",
         twitter_url: "https://twitter.com/serenawilliams",
-        idol_category: "Athlete"
+        idol_category: "Athlete",
+        category_id: 1
     },
     {
         id: 4,
@@ -41,7 +44,8 @@ const idols = [
         charity_url: "https://www.rogerfedererfoundation.org/en/who-we-are/mission/",
         image: "roger.jpg",
         twitter_url: "https://twitter.com/rogerfederer",
-        idol_category: "Athlete"
+        idol_category: "Athlete",
+        category_id: 1
     },
     {
         id: 5,
@@ -52,7 +56,8 @@ const idols = [
         charity_url: "https://www.lindseyvonnfoundation.org/about",
         image: "lindsey.jpg",
         twitter_url: "https://twitter.com/lindseyvonn",
-        idol_category: "Athlete"
+        idol_category: "Athlete",
+        category_id: 1
     },
     {
         id: 6,
@@ -63,7 +68,8 @@ const idols = [
         charity_url: "https://tgrfoundation.org/",
         image: "tiger.jpg",
         twitter_url: "https://twitter.com/TigerWoods",
-        idol_category: "Athlete"
+        idol_category: "Athlete",
+        category_id: 1
     },
     {
         id: 7,
@@ -74,7 +80,8 @@ const idols = [
         charity_url: "https://kaepernick7.com/",
         image: "colin.jpg",
         twitter_url: "https://twitter.com/Kaepernick7",
-        idol_category: "Athlete"
+        idol_category: "Athlete",
+        category_id: 1
     },
     {
         id: 8,
@@ -85,7 +92,8 @@ const idols = [
         charity_url: "https://www.mlb.com/turn-2-foundation",
         image: "derek.jpg",
         twitter_url: "https://twitter.com/derek_jeter_2",
-        idol_category: "Athlete"
+        idol_category: "Athlete",
+        category_id: 1
     },
     {
         id: 9,
@@ -96,7 +104,8 @@ const idols = [
         charity_url: "http://www.peytonmanning.com/",
         image: "peyton.jpg",
         twitter_url: "https://twitter.com/peytonnmanning",
-        idol_category: "Athlete"
+        idol_category: "Athlete",
+        category_id: 1
     },
     {
         id: 10,
@@ -106,7 +115,8 @@ const idols = [
         hometown: "Portsmouth, New Hampshire",
         charity_url: "https://diocancerfund.org/",
         image: "dio.jpg",
-        idol_category: "Musician"
+        idol_category: "Musician",
+        category_id: 2
     },
     {
         id: 11,
@@ -116,7 +126,8 @@ const idols = [
         hometown: "Pinner, Middlesex, England",
         charity_url: "https://www.eltonjohnaidsfoundation.org/",
         image: "eltonjohn.jpg",
-        idol_category: "Musician"
+        idol_category: "Musician",
+        category_id: 2
     },
     {
         id: 12,
@@ -126,7 +137,8 @@ const idols = [
         hometown: "Seattle, WA",
         charity_url: "https://pearljam.com/acts/vitalogy",
         image: "pearljam.jpg",
-        idol_category: "Musician"
+        idol_category: "Musician",
+        category_id: 2
     },
     {
         id: 13,
@@ -136,7 +148,8 @@ const idols = [
         hometown: "Granite Falls, NC",
         charity_url: "https://www.ericchurch.com/chief-cares",
         image: "ericchurch.jpg",
-        idol_category: "Musician"
+        idol_category: "Musician",
+        category_id: 2
     },
     {
         id: 14,
@@ -146,7 +159,8 @@ const idols = [
         hometown: "Senegal",
         charity_url: "http://konfidence.org/",
         image: "akon.jpg",
-        idol_category: "Musician"
+        idol_category: "Musician",
+        category_id: 2
     },
     {
         id: 15,
@@ -156,7 +170,8 @@ const idols = [
         hometown: "Chicago, IL",
         charity_url: "https://www.socialworkschi.org/",
         image: "ctrapper.jpg",
-        idol_category: "Musician"
+        idol_category: "Musician",
+        category_id: 2
     },
     {
         id: 16,
@@ -166,8 +181,31 @@ const idols = [
         hometown: "Sayreville, NJ",
         charity_url: "https://jbjsf.org/",
         image: "bonjovi.jpg",
-        idol_category: "Musician"
+        idol_category: "Musician",
+        category_id: 2
     },
+    {
+        id: 17,
+        name: "Bill Gates",
+        charity: "JBJ Soul Foundation",
+        description: "Since 2006, the Jon Bon Jovi Soul Foundation has worked to break the cycle of hunger, poverty and homelessness through developing partnerships, creating programs and providing grant funding to support innovative community benefit organizations.",
+        hometown: "Sayreville, NJ",
+        charity_url: "https://jbjsf.org/",
+        image: "bonjovi.jpg",
+        idol_category: "Entrepreneur",
+        category_id: 3
+    },
+    {
+        id: 18,
+        name: "Warren Buffet",
+        charity: "JBJ Soul Foundation",
+        description: "Since 2006, the Jon Bon Jovi Soul Foundation has worked to break the cycle of hunger, poverty and homelessness through developing partnerships, creating programs and providing grant funding to support innovative community benefit organizations.",
+        hometown: "Sayreville, NJ",
+        charity_url: "https://jbjsf.org/",
+        image: "bonjovi.jpg",
+        idol_category: "Entrepreneur",
+        category_id: 3
+    }
 ];
 
 export default idols;

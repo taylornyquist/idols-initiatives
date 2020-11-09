@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-export const QUERY_ALL_IDOLS = gql `
+export const QUERY_ALL_IDOLS = gql`
     {
         idols{
             _id
@@ -11,6 +11,19 @@ export const QUERY_ALL_IDOLS = gql `
             charity_url
             image
             twitter_url
+            idol_category {
+                _id
+                name
+            }
         }  
     }
-`
+`;
+
+export const QUERY_CATEGORIES = gql`
+    {
+        categories {
+            _id
+            name
+        }
+    }
+`;
