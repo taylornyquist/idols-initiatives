@@ -11,6 +11,7 @@ function Login(props) {
   
     const handleFormSubmit = async event => {
       event.preventDefault();
+      console.log("handleForm Initiated");
       try {
         const mutationResponse = await login({ variables: { email: formState.email, password: formState.password } })
         const token = mutationResponse.data.login.token;
@@ -20,8 +21,9 @@ function Login(props) {
       }
     };
   
-    const handleLogin = event => {
+    const handleChange = event => {
       const { name, value } = event.target;
+      console.log("handleChange Initiated");
       setFormState({
         ...formState,
         [name]: value
@@ -37,7 +39,12 @@ function Login(props) {
                         <Form onSubmit={handleFormSubmit}>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" placeholder="Enter email" />
+                                <Form.Control 
+                                    type="email" 
+                                    name="email" 
+                                    placeholder="Enter email"
+                                    onChange={handleChange} 
+                                />
                                 <Form.Text className="text-muted">
                                     We'll never share your email with anyone else.
                                 </Form.Text>
@@ -45,9 +52,13 @@ function Login(props) {
 
                             <Form.Group controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" />
+                                <Form.Control 
+                                    name="password"
+                                    type="password"
+                                    onChange={handleChange}
+                                 />
                             </Form.Group>
-                            <Button onClick={handleLogin} variant="info" type="submit">
+                            <Button variant="info" type="submit">
                                 Submit
                         </Button>
                         </Form>
