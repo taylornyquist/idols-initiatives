@@ -15,9 +15,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 
-const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql'
-});
+// const client = new ApolloClient({
+//   uri: 'http://localhost:3001/graphql'
+// });
 
 import { Provider } from 'react-redux';
 import store from './utils/store';
