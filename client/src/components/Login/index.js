@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { useState } from "react";
+import { useMutation } from '@apollo/react-hooks';
+import { LOGIN } from "../../utils/mutations"
+import Auth from "../../utils/auth";
 // import { Link } from 'react-router-dom';
 import { Container, Row, Col, Form, Button, Jumbotron } from 'react-bootstrap';
 
-const Login = () => {
-
-    const handleLogin = () => {
-        console.log("click");
-        // insert dispatch to signup user here
+function Login(props) {
+    const [formState, setFormState] = useState({ email: '', password: '' })
+    const [login] = useMutation(LOGIN);
+  
+    const handleFormSubmit = async event => {
+      event.preventDefault();
+      console.log("handleForm Initiated");
+      try {
+        const mutationResponse = await login({ variables: { email: formState.email, password: formState.password } })
+        const token = mutationResponse.data.login.token;
+        Auth.login(token);
+      } catch (e) {
+        console.log(e)
+      }
+    };
+  
+    const handleChange = event => {
+      const { name, value } = event.target;
+      console.log("handleChange Initiated");
+      setFormState({
+        ...formState,
+        [name]: value
+      });
     };
 
     return (
@@ -15,10 +36,15 @@ const Login = () => {
                 <Container>
                     <Row>
                         <Col className="ml-auto mr-auto" md={5}>
-                        <Form>
+                        <Form onSubmit={handleFormSubmit}>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" placeholder="Enter email" />
+                                <Form.Control 
+                                    type="email" 
+                                    name="email" 
+                                    placeholder="Enter email"
+                                    onChange={handleChange} 
+                                />
                                 <Form.Text className="text-muted">
                                     We'll never share your email with anyone else.
                                 </Form.Text>
@@ -26,9 +52,13 @@ const Login = () => {
 
                             <Form.Group controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" />
+                                <Form.Control 
+                                    name="password"
+                                    type="password"
+                                    onChange={handleChange}
+                                 />
                             </Form.Group>
-                            <Button onClick={handleLogin} variant="info" type="submit">
+                            <Button variant="info" type="submit">
                                 Submit
                         </Button>
                         </Form>
