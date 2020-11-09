@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Col, Row, Button, Container } from 'react-bootstrap';
 import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/actions';
 import { useQuery } from '@apollo/react-hooks';
-// import { QUERY_CATEGORIES } from "../../utils/queries";
+import { QUERY_CATEGORIES } from "../../utils/queries";
 import { useDispatch, useSelector } from 'react-redux';
 import { idbPromise } from '../../utils/helpers';
 
@@ -12,7 +12,8 @@ function CategoryMenu() {
     const state = useSelector(state => state);
 
     const { categories } = state;
-    // const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
+    console.log(categories);
+    const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
 
     // this will eventually need to be moved to the server side seed
     // const categories = [
@@ -39,29 +40,29 @@ function CategoryMenu() {
     //     categories: ['All Idols', 'Athletes', 'Musicians', 'Entrepreneurs']
     // };
 
-    // useEffect(() => {
-    //     if (categoryData) {
-    //         dispatch({
-    //             type: UPDATE_CATEGORIES,
-    //             categories: categoryData.categories
-    //         });
-    //         // categoryData.categories.forEach(category => {
-    //         //     idbPromise('categories', 'put', category);
-    //         // });
-    //     } 
-    //     // else if (!loading) {
-    //     //     idbPromise('categories', 'get').then(categories => {
-    //     //         dispatch({
-    //     //             type: UPDATE_CATEGORIES,
-    //     //             categories: categories
-    //     //         });
-    //     //     });
-    //     // }
+    useEffect(() => {
+        if (categoryData) {
+            dispatch({
+                type: UPDATE_CATEGORIES,
+                categories: categoryData.categories
+            });
+            categoryData.categories.forEach(category => {
+                idbPromise('categories', 'put', category);
+            });
+        }
+        else if (!loading) {
+            idbPromise('categories', 'get').then(categories => {
+                dispatch({
+                    type: UPDATE_CATEGORIES,
+                    categories: categories
+                });
+            });
+        }
 
-    //     // removed "loading" from the following array
-    // }, [categoryData, dispatch]);
+        // removed "loading" from the following array
+    }, [categoryData, loading, dispatch]);
 
-    const handleClick = id => {
+    const handleClick = (id) => {
         dispatch({
             type: UPDATE_CURRENT_CATEGORY,
             currentCategory: id
@@ -75,11 +76,20 @@ function CategoryMenu() {
             <h4 className="mb-3 ml-4">Choose a Category:</h4>
             <Container className="mb-3">
                 <Row>
+                    <Col md={3} >
+                        <Button className="mr-3 mb-3 px-3" variant="secondary" block onClick={() => {
+                            handleClick("clear");
+                        }}>
+                            All Idols
+                            </Button>
+                    </Col>
+
                     {categories.map(category => (
-                        <Col md={3} key={category.id}>
-                            <Button className="mr-3 mb-3 px-3" variant="secondary" block onClick={() => {
+                        <Col md={3} >
+                            <Button key={category._id} className="mr-3 mb-3 px-3" variant="secondary" block onClick={() => {
                                 // console.log("clicked" + category.name);
-                                handleClick(category.id);
+                                // handleClick(category.id);
+                                handleClick(category._id);
                             }}>
                                 {category.name}
                             </Button>

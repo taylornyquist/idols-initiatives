@@ -1,5 +1,5 @@
 import {
-    // UPDATE_PRODUCTS,
+    UPDATE_IDOLS,
     // ADD_TO_CART,
     // UPDATE_CART_QUANTITY,
     // REMOVE_FROM_CART,
@@ -12,24 +12,24 @@ import {
 
 const defaultState = {
     categories: [
-        {
-            name: 'All Idols',
-            id: 0
-        },
-        {
-            name: 'Athletes',
-            id: 1
-        },
-        {
-            name: 'Musicians',
-            id: 2
-        },
-        {
-            name: 'Entrepreneurs',
-            id: 3
-        }
+        // {
+        //     name: 'All Idols',
+        //     id: 0
+        // },
+        // {
+        //     name: 'Athletes',
+        //     id: 1
+        // },
+        // {
+        //     name: 'Musicians',
+        //     id: 2
+        // },
+        // {
+        //     name: 'Entrepreneurs',
+        //     id: 3
+        // }
     ],
-    currentCategory: '0'
+    currentCategory: ''
 };
 
 export const reducers = (state = defaultState, action) => {
@@ -46,7 +46,14 @@ export const reducers = (state = defaultState, action) => {
             return {
                 ...state,
                 currentCategory: action.currentCategory
-            }
+            };
+
+        // not sure if this is right, particularly the action.idols
+        case UPDATE_IDOLS:
+            return {
+                ...state,
+                products: [...action.idols],
+            };
 
         default:
             return state;

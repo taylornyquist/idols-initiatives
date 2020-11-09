@@ -6,20 +6,16 @@ db.once('open', async () => {
 
     const categories = await Category.insertMany([
         {
-            name: 'All Idols',
+            name: 'Athlete',
             id: 0
         },
         {
-            name: 'Athlete',
+            name: 'Musician',
             id: 1
         },
         {
-            name: 'Musician',
-            id: 2
-        },
-        {
             name: 'Entrepreneur',
-            id: 3
+            id: 2
         }
     ]);
 
@@ -181,6 +177,24 @@ db.once('open', async () => {
             image: "bonjovi.jpg",
             idol_category: categories[1]._id
         },
+        {
+            name: "Warren Buffet",
+            charity: "JBJ Soul Foundation",
+            description: "Since 2006, the Jon Bon Jovi Soul Foundation has worked to break the cycle of hunger, poverty and homelessness through developing partnerships, creating programs and providing grant funding to support innovative community benefit organizations.",
+            hometown: "Sayreville, NJ",
+            charity_url: "https://jbjsf.org/",
+            image: "buffett.jpg",
+            idol_category: categories[2]._id
+        },
+        {
+            name: "Bill Gates",
+            charity: "JBJ Soul Foundation",
+            description: "Since 2006, the Jon Bon Jovi Soul Foundation has worked to break the cycle of hunger, poverty and homelessness through developing partnerships, creating programs and providing grant funding to support innovative community benefit organizations.",
+            hometown: "Sayreville, NJ",
+            charity_url: "https://jbjsf.org/",
+            image: "gates.jpg",
+            idol_category: categories[2]._id
+        }
     ]);
 
     console.log('idols seeded');
