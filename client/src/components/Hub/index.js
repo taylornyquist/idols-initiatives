@@ -1,31 +1,20 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { QUERY_ALL_IDOLS } from '../../utils/queries';
+import { QUERY_ME } from '../../utils/queries';
 // import { Link } from 'react-router-dom';
 import Jumbo from '../Jumbotron'
 import CategoryMenu from '../CategoryMenu'
-import { Container, Row, Button, Card, CardDeck, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Jumbotron, Container, Row, Button, Card, CardDeck, ListGroup, ListGroupItem } from 'react-bootstrap';
 // import idols from '../../utils/seed'
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { useDispatch, useSelector } from 'react-redux';
 
-// testing only...
-// const deleteMeLater = {
-//     name: "Cristiano Ronoldo",
-//     charity: "Lebron James Family Foundation",
-//     description: "Ronaldo is an ambassador for three major charities - Save the Children, Unicef and World Vision",
-//     hometown: "Funchal, Portugal",
-//     charity_url: "https://www.savethechildren.org/",
-//     image: "cristiano.jpg",
-//     twitter_url: "https://twitter.com/Cristiano",
-//     idol_category: categories[1]._id
-// };
-
 const Hub = () => {
 
-    const { loading, data } = useQuery(QUERY_ALL_IDOLS);
-    const idols = data?.idols || [];
-    console.log(idols);
+    // change this to QUERY_MY_IDOLS or QUERY_ME???
+    const { loading, data } = useQuery(QUERY_ME);
+    const myIdols = data?.myIdols || [];
+    console.log(myIdols);
 
     const dispatch = useDispatch();
     const state = useSelector(state => state);
@@ -34,9 +23,9 @@ const Hub = () => {
 
     function filterIdols() {
         if (!currentCategory || currentCategory === "clear") {
-            return idols;
+            return myIdols;
         };
-        const filteredIdols = idols.filter(idol => idol.idol_category._id === currentCategory);
+        const filteredIdols = myIdols.filter(idol => idol.idol_category._id === currentCategory);
         return filteredIdols;
     };
 
@@ -48,13 +37,16 @@ const Hub = () => {
     return (
 
         <>
-            <Jumbo />
+            <Jumbotron className="py-4">
+                <h1>My Hub</h1>
+            </Jumbotron>
+
             <CategoryMenu />
 
             <Container fluid>
                 <Row className="ml-auto mr-auto">
 
-                    {idols ? (
+                    {myIdols ? (
                         <>
                             {filterIdols().map((idol) => (
 

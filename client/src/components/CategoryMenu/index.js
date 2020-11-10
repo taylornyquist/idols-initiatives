@@ -73,7 +73,7 @@ function CategoryMenu() {
 
     return (
         <>
-            <h4 className="mb-3 ml-4">Choose a Category:</h4>
+            <h5 className="mb-3 ml-4">Choose a Category:</h5>
             <Container className="mb-3">
                 <Row>
                     <Col md={3} >
