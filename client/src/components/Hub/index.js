@@ -4,7 +4,7 @@ import { QUERY_ALL_IDOLS } from '../../utils/queries';
 // import { Link } from 'react-router-dom';
 import Jumbo from '../Jumbotron'
 import CategoryMenu from '../CategoryMenu'
-import { Jumbotron, Container, Row, Button, Card, CardDeck, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Jumbotron, Container, Row, Button, Card, CardDeck, ListGroup, ListGroupItem, Spinner } from 'react-bootstrap';
 // import idols from '../../utils/seed'
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,7 +13,7 @@ const Hub = () => {
 
     // change this to QUERY_MY_IDOLS or QUERY_ME???
     const { loading, data } = useQuery(QUERY_ALL_IDOLS);
-    const myIdols = data?.myIdols || [];
+    const myIdols = data?.myIdols;
     console.log(myIdols);
 
     const dispatch = useDispatch();
@@ -79,7 +79,17 @@ const Hub = () => {
 
                             ))}
                         </>
-                    ) : <h2>No Idols Yet</h2>}
+                    ) : (
+                            <h1 className="text-secondary mt-3 ml-auto mr-auto">No Idols Yet</h1>
+                        )}
+                    {loading ?
+                        <>
+                            <Container fluid className="text-center">
+                                <Spinner animation="border" role="status">
+                                    <span className="sr-only">Loading...</span>
+                                </Spinner>
+                            </Container>
+                        </> : null}
 
                 </Row>
             </Container>
