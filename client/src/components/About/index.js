@@ -8,7 +8,7 @@ const About = () => {
 
         <Jumbotron>
             <h1>About Us</h1>
-            <p>
+            <p className="mt-3">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate aliquid, possimus, voluptatem, itaque quisquam dolorem reiciendis accusamus laboriosam ullam fugiat blanditiis. Quaerat sunt et laudantium eum alias, deleniti cupiditate unde!
             </p>
             <p>
@@ -17,8 +17,8 @@ const About = () => {
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate aliquid, possimus, voluptatem, itaque quisquam dolorem reiciendis accusamus laboriosam ullam fugiat blanditiis. Quaerat sunt et laudantium eum alias, deleniti cupiditate unde!
             </p>
-            <p>
-                <Button href="/" variant="info">Take Me Home</Button>
+            <p >
+                <Button className="mt-3" href="/" variant="info">Take Me Home</Button>
             </p>
         </Jumbotron>
 
