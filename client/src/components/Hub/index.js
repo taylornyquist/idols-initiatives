@@ -14,7 +14,7 @@ const Hub = () => {
 
     // change this to QUERY_MY_IDOLS or QUERY_ME???
     const { loading, data } = useQuery(QUERY_MY_IDOLS);
-    const myIdols = data?.me.idsols;
+    const myIdols = data?.me.idols;
     console.log(myIdols);
 
     const dispatch = useDispatch();
