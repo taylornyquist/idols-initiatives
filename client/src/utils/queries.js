@@ -27,3 +27,23 @@ export const QUERY_CATEGORIES = gql`
         }
     }
 `;
+
+export const QUERY_MY_IDOLS = gql`
+    {
+        me{
+            _id
+            username
+            email
+            idols{
+                _id
+                name
+                charity
+                description
+                hometown
+                charity_url
+                image
+                twitter_url
+  	        }
+        }
+    }
+`

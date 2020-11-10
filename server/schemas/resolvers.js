@@ -6,10 +6,10 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if(context.user){
-        const userData = await User.findOne({})
+        const userData = await User.findOne({_id: context.user._id})
         .select('-__v -password')
-        .populate('thoughts')
-        .populate('friends');
+        .populate('idols')
+        
 
         return userData;
       }
@@ -21,11 +21,11 @@ const resolvers = {
     },
     //find all idols
     idols: async () => {
-      return Idol.find()
+      return Idol.find().populate('categorys')
     },
     //find idol by id
     idol: async(parent, { _id }) => {
-      return Idol.findOne({ _id })
+      return Idol.findOne({ _id }).populate('categories')
     },
     //find all users
     users: async() => {
@@ -33,7 +33,7 @@ const resolvers = {
     },
     // find user by id
     user: async(parent, { _id }) => {
-      return User.findOne({_id})
+      return User.findOne({_id}).populate('idols')
     }
   },
   Mutation: {

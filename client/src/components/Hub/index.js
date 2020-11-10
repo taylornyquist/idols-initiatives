@@ -3,6 +3,8 @@ import React from 'react';
 import { Container, Row, Button, Card, CardDeck, ListGroup, ListGroupItem } from 'react-bootstrap';
 import idols from '../../utils/seed'
 import TwitterIcon from '@material-ui/icons/Twitter';
+import { useQuery } from '@apollo/react-hooks';
+import { QUERY_MY_IDOLS } from '../../utils/queries';
 
 const Hub = () => {
 
@@ -10,6 +12,11 @@ const Hub = () => {
         console.log("click");
         // insert dispatch to remove from user's hub here
     };
+
+    const {loading, data } = useQuery(QUERY_MY_IDOLS);
+    console.log(data)
+    const myIdols = data?.idols || [];
+    console.log(myIdols)
 
     return (
 
