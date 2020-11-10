@@ -8,12 +8,13 @@ import { Jumbotron, Container, Row, Button, Card, CardDeck, ListGroup, ListGroup
 // import idols from '../../utils/seed'
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { useDispatch, useSelector } from 'react-redux';
+import { QUERY_MY_IDOLS } from '../../utils/queries';
 
 const Hub = () => {
 
     // change this to QUERY_MY_IDOLS or QUERY_ME???
-    const { loading, data } = useQuery(QUERY_ALL_IDOLS);
-    const myIdols = data?.myIdols;
+    const { loading, data } = useQuery(QUERY_MY_IDOLS);
+    const myIdols = data?.me.idsols;
     console.log(myIdols);
 
     const dispatch = useDispatch();
