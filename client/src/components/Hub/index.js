@@ -15,8 +15,7 @@ const Hub = () => {
 
     const {loading, data } = useQuery(QUERY_MY_IDOLS);
     console.log(data)
-    const myIdols = data?.idols || [];
-    console.log(myIdols)
+    
 
     return (
 
