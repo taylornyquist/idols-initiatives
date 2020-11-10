@@ -23,10 +23,10 @@ app.use(express.json());
 // Serve up static assets
 // app.use('/images', express.static(path.join(__dirname, '../client/images')));
 
-// // Serve up static assets
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static(path.join(__dirname, '../client/build')));
-// };
+// Serve up static assets
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+};
 
 // Not sure about this...
 // app.get("/service-worker.js", (req, res) => {
