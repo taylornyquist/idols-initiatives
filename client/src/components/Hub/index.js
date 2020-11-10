@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { QUERY_ME } from '../../utils/queries';
+import { QUERY_ALL_IDOLS } from '../../utils/queries';
 // import { Link } from 'react-router-dom';
 import Jumbo from '../Jumbotron'
 import CategoryMenu from '../CategoryMenu'
@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const Hub = () => {
 
     // change this to QUERY_MY_IDOLS or QUERY_ME???
-    const { loading, data } = useQuery(QUERY_ME);
+    const { loading, data } = useQuery(QUERY_ALL_IDOLS);
     const myIdols = data?.myIdols || [];
     console.log(myIdols);
 
