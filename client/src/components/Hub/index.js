@@ -2,26 +2,36 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 import { Container, Row, Button, Card, CardDeck, ListGroup, ListGroupItem } from 'react-bootstrap';
 import idols from '../../utils/seed'
+import { useParams } from 'react-router-dom';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_MY_IDOLS } from '../../utils/queries';
 
+
 const Hub = () => {
+
+    const { username: useParam } = useParams();
+
+    const { loading, data } = useQuery(QUERY_MY_IDOLS);
+
+    const idols = data?.me.idols || [];
+    console.log(idols)
 
     const removeToHub = () => {
         console.log("click");
         // insert dispatch to remove from user's hub here
     };
 
-    const {loading, data } = useQuery(QUERY_MY_IDOLS);
-    console.log(data)
-    
+    if(loading) {
+        return <div>Loading...</div>
+    }
 
     return (
 
         <>
 
             <Container fluid className="mt-3">
+                
                 <Row className="ml-auto mr-auto">
 
 
