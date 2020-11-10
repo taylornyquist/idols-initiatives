@@ -19,6 +19,26 @@ export const QUERY_ALL_IDOLS = gql`
     }
 `;
 
+export const QUERY_MY_IDOLS = gql`
+    {
+        me{
+            _id
+            username
+            email
+            idols{
+                _id
+                name
+                charity
+                description
+                hometown
+                charity_url
+                image
+                twitter_url
+  	        }
+        }
+    }
+`;
+
 export const QUERY_CATEGORIES = gql`
     {
         categories {
