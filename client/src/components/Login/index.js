@@ -7,11 +7,11 @@ import { Container, Row, Col, Form, Button, Jumbotron } from 'react-bootstrap';
 
 function Login(props) {
     const [formState, setFormState] = useState({ email: '', password: '' })
-    const [login] = useMutation(LOGIN);
+    const [login, { error }] = useMutation(LOGIN);
 
     const handleFormSubmit = async event => {
         event.preventDefault();
-        console.log("handleForm Initiated");
+        // console.log("handleForm Initiated");
         try {
             const mutationResponse = await login({ variables: { email: formState.email, password: formState.password } })
             const token = mutationResponse.data.login.token;
@@ -23,7 +23,7 @@ function Login(props) {
 
     const handleChange = event => {
         const { name, value } = event.target;
-        console.log("handleChange Initiated");
+        // console.log("handleChange Initiated");
         setFormState({
             ...formState,
             [name]: value
@@ -47,7 +47,7 @@ function Login(props) {
                                     />
                                     <Form.Text className="text-muted">
                                         We'll never share your email with anyone else.
-                                </Form.Text>
+                                    </Form.Text>
                                 </Form.Group>
 
                                 <Form.Group controlId="formBasicPassword">
@@ -58,9 +58,14 @@ function Login(props) {
                                         onChange={handleChange}
                                     />
                                 </Form.Group>
+                                {
+                                    error ? <div>
+                                        <p className="text-danger small" >The provided credentials are incorrect</p>
+                                    </div> : null
+                                }
                                 <Button variant="info" type="submit">
                                     Submit
-                        </Button>
+                                </Button>
                             </Form>
                         </Col>
                     </Row>

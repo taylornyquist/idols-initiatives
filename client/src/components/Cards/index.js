@@ -4,7 +4,7 @@ import { QUERY_ALL_IDOLS } from '../../utils/queries';
 // import { Link } from 'react-router-dom';
 import Jumbo from '../Jumbotron'
 import CategoryMenu from '../CategoryMenu'
-import { Container, Row, Button, Card, CardDeck, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Container, Row, Button, Card, CardDeck, ListGroup, ListGroupItem, Spinner } from 'react-bootstrap';
 // import idols from '../../utils/seed'
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { useDispatch, useSelector } from 'react-redux';
@@ -24,7 +24,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const Cards = () => {
 
     const { loading, data } = useQuery(QUERY_ALL_IDOLS);
-    const idols = data?.idols || [];
+    const idols = data?.idols;
     console.log(idols);
 
     const dispatch = useDispatch();
@@ -87,8 +87,17 @@ const Cards = () => {
 
                             ))}
                         </>
-                    ) : <h2>No Idols Yet</h2>}
-
+                    ) : (
+                        <h1 className="text-secondary mt-3 ml-auto mr-auto">No Idols Yet</h1>
+                        )}
+                    {loading ?
+                        <>
+                            <Container fluid className="text-center">
+                                <Spinner animation="border" role="status">
+                                    <span className="sr-only">Loading...</span>
+                                </Spinner>
+                            </Container>
+                        </> : null}
                 </Row>
             </Container>
         </>
