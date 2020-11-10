@@ -19,18 +19,22 @@ const Signup = () => {
         console.log("clicked submit");
         console.log(formState);
 
-        const mutationResponse = await addUser({
-            variables: {
-                firstName: formState.firstName, 
-                lastName: formState.lastName, 
-                username: formState.username, 
-                email: formState.email, 
-                password: formState.password
-            }
-        });
-        console.log(mutationResponse);
-        const token = mutationResponse.data.addUser.token;
-        Auth.login(token);
+        try {
+            const mutationResponse = await addUser({
+                variables: {
+                    firstName: formState.firstName, 
+                    lastName: formState.lastName, 
+                    username: formState.username, 
+                    email: formState.email, 
+                    password: formState.password
+                }
+            });
+            console.log(mutationResponse);
+            const token = mutationResponse.data.addUser.token;
+            Auth.login(token);
+        } catch (e) {
+            console.log(e)
+        }
     };
 
     const handleChange = event => {
