@@ -15,11 +15,11 @@ const server = new ApolloServer({
     formatError: (err) => {
         // Don't give the specific errors to the client.
         if (err.message.startsWith("E11000 duplicate key error collection: idol-initiatives.users index: username")) {
-          return new Error('Username has already been used.');
+            return new Error('Username has already been used.');
         }
         if (err.message.startsWith("E11000 duplicate key error collection: idol-initiatives.users index: email")) {
             return new Error('Email has already been used.');
-          }
+        }
         if (err.message.startsWith("User validation failed: password")) {
             return new Error('Password required.');
         }
@@ -32,10 +32,13 @@ const server = new ApolloServer({
         if (err.message.startsWith("User validation failed: lastName")) {
             return new Error('Please tell us your last name.');
         }
+        if (err.message.startsWith("User validation failed: email")) {
+            return new Error('Please submit a valid email address.');
+        }
         // Otherwise return the original error.  The error can also
         // be manipulated in other ways, so long as it's returned.
         return err;
-      },
+    },
     context: authMiddleware,
 });
 

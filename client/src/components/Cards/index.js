@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { QUERY_ALL_IDOLS } from '../../utils/queries';
 // import { Link } from 'react-router-dom';
@@ -8,23 +8,15 @@ import { Container, Row, Button, Card, CardDeck, ListGroup, ListGroupItem, Spinn
 // import idols from '../../utils/seed'
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { ADD_TO_HUB} from '../../utils/mutations';
-
-
-// testing only...
-// const deleteMeLater = {
-//     name: "Cristiano Ronoldo",
-//     charity: "Lebron James Family Foundation",
-//     description: "Ronaldo is an ambassador for three major charities - Save the Children, Unicef and World Vision",
-//     hometown: "Funchal, Portugal",
-//     charity_url: "https://www.savethechildren.org/",
-//     image: "cristiano.jpg",
-//     twitter_url: "https://twitter.com/Cristiano",
-//     idol_category: categories[1]._id
-// };
+import Auth from '../../utils/auth';
+import { ADD_TO_HUB } from '../../utils/mutations';
+import { saveIdolIds, getSavedIdolIds } from '../../utils/localStorage';
 
 const Cards = () => {
+
+    // local state or global redux state???
+    // create state to hold saved idolId values in local state
+    const [savedIdolIds, setSavedIdolIds] = useState(getSavedIdolIds());
 
     const { loading, data } = useQuery(QUERY_ALL_IDOLS);
     const idols = data?.idols;
@@ -43,16 +35,34 @@ const Cards = () => {
         return filteredIdols;
     };
 
+    // set up useEffect hook to save `savedIdolIds` list to localStorage on component unmount
+    // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
+    // useEffect(() => {
+    //     return () => saveIdolIds(savedIdolIds);
+    // });
+
+    saveIdolIds(savedIdolIds);
+
     const [addToHub, { error }] = useMutation(ADD_TO_HUB);
 
     const handleAddToHub = async (id) => {
         console.log("click");
         console.log(id);
+
+        // get token
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+        if (!token) {
+            alert("You must be logged in to add idols to your hub!");
+            return false;
+        }
+
         // insert dispatch to user's hub here
         try {
             await addToHub({
                 variables: { idol_id: id }
             });
+            setSavedIdolIds([...savedIdolIds, id]);
         } catch (e) {
             console.error(e);
         }
@@ -94,14 +104,23 @@ const Cards = () => {
                                             )}
 
                                         </Card.Body>
-                                        <Button onClick={() => handleAddToHub(idol._id)} variant="info">Add To Hub</Button>{' '}
+                                        <Button
+                                            disabled={savedIdolIds?.some((savedIdolId) => savedIdolId === idol._id)}
+                                            onClick={() => handleAddToHub(idol._id)}
+                                            variant={savedIdolIds?.some((savedIdolId) => savedIdolId === idol._id)
+                                                ? 'danger'
+                                                : 'info'}>
+                                            {savedIdolIds?.some((savedIdolId) => savedIdolId === idol._id)
+                                                ? 'Added To Hub'
+                                                : 'Add To Hub'}
+                                        </Button>{' '}
                                     </Card>
                                 </CardDeck>
 
                             ))}
                         </>
                     ) : (
-                        <h1 className="text-secondary mt-3 ml-auto mr-auto">No Idols Yet</h1>
+                            <h1 className="text-secondary mt-3 ml-auto mr-auto">No Idols Yet</h1>
                         )}
                     {loading ?
                         <>
