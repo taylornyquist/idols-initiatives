@@ -60,14 +60,6 @@ const resolvers = {
   
         return { token, user };
       },
-      saveIdol: async (parent, args, context) => {
-        if (context.user) {
-            const newIdol = await Idol.create(args);
-
-            return newIdol;
-          }
-        },
-
       addToHub: async (parent, { idol_id }, context) => {
         if (context.user) {
           const updatedUser = await User.findByIdAndUpdate(

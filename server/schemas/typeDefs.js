@@ -46,14 +46,9 @@ type Query {
 type Mutation {
       addUser(firstName: String!, lastName: String!, username: String!, email: String!, password: String!, admin: Int): Auth
       login(email: String!, password: String!): Auth
-<<<<<<< HEAD
-      saveIdol(name: String!, charity: String!, description: String!, hometown: String!, charity_url: String! image: String, twitter_url: String): Idol
-      }
-=======
       saveIdol(name: String!, charity: String!, description: String!, hometown: String!, charity_url: String! image: String, image: String, twitter_url: String, idol_category:String): Idol
       addToHub(idol_id: ID!): User  
     }
->>>>>>> feature/addhub
 `;
 
 module.exports = typeDefs
