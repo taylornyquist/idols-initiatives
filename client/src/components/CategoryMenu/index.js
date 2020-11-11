@@ -71,30 +71,44 @@ function CategoryMenu() {
 
     return (
         <>
-            <h5 className="mb-3 ml-4">Choose a Category:</h5>
+            <Row className="text-center mb-3">
+                <Col sm={6} md={4}>
+                    {/* <h5 className="mb-3 ml-4 mr-2">Choose a Category:</h5> */}
+                    <h5 className="">Choose a Category:</h5>
+                </Col>
+                <Col sm={6} md={1}>
+                    <Button className="px-4 font-italic" size="sm" variant="outline-info" onClick={() => {
+                        handleClick("clear");
+                    }}>
+                        Reset
+                    </Button>
+                </Col>
+            </Row>
+
             <Container className="mb-3">
                 {categories ?
-                    <Row>
-                        <Col md={3} >
-                            <Button className="mr-3 mb-3 px-3" variant="secondary" block onClick={() => {
-                                handleClick("clear");
-                            }}>
-                                All Idols
-                            </Button>
-                        </Col>
+                    <>
+                        <Row>
+                            <Col md={3} >
 
-                        {categories.map(category => (
-                            <Col md={3} key={category._id} >
-                                <Button className="mr-3 mb-3 px-3" variant="secondary" block onClick={() => {
-                                    // console.log("clicked" + category.name);
-                                    // handleClick(category.id);
-                                    handleClick(category._id);
-                                }}>
-                                    {category.name}
-                                </Button>
                             </Col>
-                        ))}
-                    </Row>
+                        </Row>
+
+                        <Row>
+
+                            {categories.map(category => (
+                                <Col md={3} key={category._id} >
+                                    <Button className="mr-3 mb-3 px-3" variant="secondary" block onClick={() => {
+                                        // console.log("clicked" + category.name);
+                                        // handleClick(category.id);
+                                        handleClick(category._id);
+                                    }}>
+                                        {category.name}
+                                    </Button>
+                                </Col>
+                            ))}
+                        </Row>
+                    </>
                     : null}
             </Container>
         </>

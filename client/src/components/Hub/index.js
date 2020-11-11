@@ -42,7 +42,7 @@ const Hub = () => {
                 <h2 className="text-dark">My Hub</h2>
             </Jumbotron>
 
-            <CategoryMenu />
+            {loading ? null : <CategoryMenu />}
 
             <Container fluid>
                 <Row className="ml-auto mr-auto">
