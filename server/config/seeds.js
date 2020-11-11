@@ -179,22 +179,68 @@ db.once('open', async () => {
         },
         {
             name: "Warren Buffet",
-            charity: "JBJ Soul Foundation",
-            description: "Since 2006, the Jon Bon Jovi Soul Foundation has worked to break the cycle of hunger, poverty and homelessness through developing partnerships, creating programs and providing grant funding to support innovative community benefit organizations.",
-            hometown: "Sayreville, NJ",
-            charity_url: "https://jbjsf.org/",
+            charity: "The Giving Pledge",
+            description: "Buffett has said he will give away more than 99% of his fortune, with the bulk going to the Bill and Melinda Gates Foundation; a charity founded by Buffett's late wife, Susan Thompson Buffett; and charities run by each of his three children.",
+            hometown: "Omaha, NE",
+            charity_url: "https://givingpledge.org/",
             image: "buffett.jpg",
             idol_category: categories[2]._id
         },
         {
             name: "Bill Gates",
-            charity: "JBJ Soul Foundation",
-            description: "Since 2006, the Jon Bon Jovi Soul Foundation has worked to break the cycle of hunger, poverty and homelessness through developing partnerships, creating programs and providing grant funding to support innovative community benefit organizations.",
-            hometown: "Sayreville, NJ",
-            charity_url: "https://jbjsf.org/",
+            charity: "Bill & Melinda Gates Foundation",
+            description: "In developing countries, we focus on improving people’s health and wellbeing, helping individuals lift themselves out of hunger and extreme poverty. In the United States, we seek to ensure that all people—especially those with the fewest resources—can access the opportunities they need to succeed in school and life.",
+            hometown: "Seattle, WA",
+            charity_url: "https://www.gatesfoundation.org/",
             image: "gates.jpg",
             idol_category: categories[2]._id
+        },
+        {
+            name: "Grant Emerson with Delta Rae",
+            charity: "HUMANGOODKIND",
+            description: "Pictured in 2018, this start up by band member and Full Stack Developer Grant Emerson sends a portion of all proceeds to charities that promote social justice and equality.",
+            hometown: "Durham, NC",
+            charity_url: "https://www.humangoodkind.com/",
+            image: "deltarae.jpg",
+            idol_category: categories[1]._id
+        },
+        {
+            name: "Rick Schaden",
+            charity: "America’s Road Home",
+            description: "America’s Road Home works with government and nonprofit agencies to call attention to successful programs striving to end homelessness or alleviate its effects. Through a model of “causal capitalism,” ARH assists in fostering connections between donor funds and hundreds of organizations around the country that deliver direct services to families.",
+            hometown: "Denver, CO",
+            charity_url: "http://www.rickschaden.com/americas-road-home-helps-homeless-families/",
+            image: "Rick_Schaden.jpg",
+            idol_category: categories[2]._id
+        },
+        {
+            name: "Tony Hawk",
+            charity: "Tony Hawk Foundation",
+            description: "To-date, almost 600 recipients of grants from The Skatepark Project have opened their skateparks. These parks receive more than 6-million visits annually by youth who benefit from the active lifestyle and camaraderie the facilities promote.",
+            hometown: "San Diego, CA",
+            charity_url: "https://skatepark.org/",
+            image: "t_hawk.jpg",
+            idol_category: categories[0]._id
+        },
+        {
+            name: "Craig Newmark",
+            charity: "Thunder Bay, Ontario",
+            description: "This founder of famous Craigs List supports and funds nonprofit journalism, adopting the guidelines of the American Press Institute. \"Those who do well should take less and give more. Let's each do our part to serve the public interest. We need all hands on deck.\"",
+            hometown: "Thunder Bay, Ontario",
+            charity_url: "https://craignewmarkphilanthropies.org/",
+            image: "craig-newmark.jpg",
+            idol_category: categories[2]._id
+        },
+        {
+            name: "Jack and Kim Johnson",
+            charity: "The Johnson Ohana Foundation",
+            description: "Jack Johnson used every cent of his 2008 tour to start the Johnson Ohana Charitable Foundation, \“an endowment founded by Jack and Kim Johnson to support environmental art and music education now and into the future.\”",
+            hometown: "Oahu, Hawaii",
+            charity_url: "The Johnson Ohana Foundation is a non-profit public charity founded in 2008 by Jack and Kim Johnson to promote positive and lasting change within communities by supporting organizations that focus on environmental, art, and music education.",
+            image: "jack_johnson.jpg",
+            idol_category: categories[1]._id
         }
+        
     ]);
 
     console.log('idols seeded');
