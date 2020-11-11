@@ -5,8 +5,8 @@ import { Nav, Modal, Button, Container, Row, Col, Image } from 'react-bootstrap'
 const charityMemes = [
     {
         id: 0,
-        name: "Willy Wonka",
-        image: "/memes/willy-wonka.jpg"
+        name: "I call it Charity",
+        image: "/memes/Matt.jpg"
     },
     {
         id: 1,
@@ -32,7 +32,22 @@ const charityMemes = [
         id: 5,
         name: "Give A Penny",
         image: "/memes/penny.jpg"
-    }
+    },
+    {
+        id: 6,
+        name: "Matrix",
+        image: "/memes/matrix.jpg"
+    },
+    {
+        id: 0,
+        name: "I call it Charity",
+        image: "/memes/Matt.jpg"
+    },
+    {
+        id: 7,
+        name: "Willy Wonka",
+        image: "/memes/willy-wonka.jpg"
+    },
 ];
 
 // const charityMemes2 = {
