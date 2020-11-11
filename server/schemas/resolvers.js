@@ -60,18 +60,17 @@ const resolvers = {
   
         return { token, user };
       },
-      saveIdol: async (parent, { input }, context) => {
+      addToHub: async (parent, { idol_id }, context) => {
         if (context.user) {
-            const updatedUser = await User.findByIdAndUpdate(
-                { _id: context.user._id },
-                { $addToSet: { idols: input } },
-                { new: true }
-            );
-
-            return updatedUser;
+          const updatedUser = await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $addToSet: { idols: idol_id } },
+            { new: true }
+          );
+          return updatedUser;
         }
         throw new AuthenticationError('You need to be logged in!')
-        },
+      },
   }
 };
 
