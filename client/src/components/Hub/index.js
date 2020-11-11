@@ -14,7 +14,7 @@ const Hub = () => {
 
     // change this to QUERY_MY_IDOLS or QUERY_ME???
     const { loading, data } = useQuery(QUERY_MY_IDOLS);
-    const myIdols = data?.me.idols;
+    const myIdols = data?.me.idols || [];
     console.log(myIdols);
 
     const dispatch = useDispatch();
@@ -39,7 +39,7 @@ const Hub = () => {
 
         <>
             <Jumbotron className="py-4">
-                <h1 className="text-seconary">My Hub</h1>
+                <h2 className="text-dark">My Hub</h2>
             </Jumbotron>
 
             <CategoryMenu />

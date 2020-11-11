@@ -19,21 +19,33 @@ const Signup = () => {
         console.log("clicked submit");
         console.log(formState);
 
-        if (error) {
-            const splitError = error.message.split(":");
-            const displayError = splitError[1];
-            console.log(displayError);
-            alert(displayError)
-        }
+        if (!formState.firstName) {
+            alert("Please enter your first name!")
+        } else if (!formState.lastName) {
+            alert("Please enter your last name!")
+        } else if (!formState.username) {
+            alert("Please enter a username!")
+        } else if (!formState.email) {
+            alert("Please enter your email address!")
+        } else if (!formState.password) {
+            alert("Please enter a password!")
+        };
+
+        // if (error) {
+        //     const splitError = error.message.split(":");
+        //     const displayError = splitError[1];
+        //     console.log(displayError);
+        //     alert(displayError)
+        // }
 
         try {
             const mutationResponse = await addUser({
                 variables: {
-                    firstName: formState.firstName,
-                    lastName: formState.lastName,
-                    username: formState.username,
-                    email: formState.email,
-                    password: formState.password
+                    firstName: formState.firstName.trim(),
+                    lastName: formState.lastName.trim(),
+                    username: formState.username.trim(),
+                    email: formState.email.trim(),
+                    password: formState.password.trim()
                 }
             });
             console.log(mutationResponse);
@@ -96,11 +108,11 @@ const Signup = () => {
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control type="password" placeholder="Password" name="password" onChange={handleChange} />
                                 </Form.Group>
-                                {/* {
+                                {
                                     error ? <div>
-                                        <p className="text-danger small" >{displayError}</p>
+                                        <p className="text-danger small" >{error.message}</p>
                                     </div> : null
-                                } */}
+                                }
                                 <Button variant="info" type="submit">
                                     Submit
                                 </Button>
