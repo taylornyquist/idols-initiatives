@@ -60,15 +60,11 @@ const resolvers = {
   
         return { token, user };
       },
-      saveIdol: async (parent, { input }, context) => {
+      saveIdol: async (parent, args, context) => {
         if (context.user) {
-            const updatedUser = await User.findByIdAndUpdate(
-                { _id: context.user._id },
-                { $addToSet: { idols: input } },
-                { new: true }
-            );
+            const newIdol = await Idol.create(args);
 
-            return updatedUser;
+            return newIdol;
         }
         throw new AuthenticationError('You need to be logged in!')
         },
