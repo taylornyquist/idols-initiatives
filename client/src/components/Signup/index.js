@@ -12,6 +12,9 @@ const Signup = () => {
         email: '',
         password: ''
     });
+
+    const [userErrorMessage, setUserErrorMessage] = useState('');
+
     const [addUser, { error }] = useMutation(ADD_USER);
 
     const handleSigup = async event => {
@@ -19,17 +22,22 @@ const Signup = () => {
         console.log("clicked submit");
         console.log(formState);
 
-        if (!formState.firstName) {
-            alert("Please enter your first name!")
-        } else if (!formState.lastName) {
-            alert("Please enter your last name!")
-        } else if (!formState.username) {
-            alert("Please enter a username!")
-        } else if (!formState.email) {
-            alert("Please enter your email address!")
-        } else if (!formState.password) {
-            alert("Please enter a password!")
-        };
+        // if (!formState.firstName) {
+        //     alert("Please enter your first name!");
+        //     return;
+        // } else if (!formState.lastName) {
+        //     alert("Please enter your last name!");
+        //     return;
+        // } else if (!formState.username) {
+        //     alert("Please enter a username!");
+        //     return;
+        // } else if (!formState.email) {
+        //     alert("Please enter your email address!");
+        //     return;
+        // } else if (!formState.password) {
+        //     alert("Please enter a password!");
+        //     return;
+        // };
 
         // if (error) {
         //     const splitError = error.message.split(":");
@@ -57,12 +65,23 @@ const Signup = () => {
     };
 
     const handleChange = event => {
+
         const { name, value } = event.target;
+
         setFormState({
             ...formState,
             [name]: value
         });
     };
+
+    const handleValidation = event => {
+
+        if (!event.target.value.length) {
+            setUserErrorMessage(`${event.target.placeholder} is required.`);
+        } else {
+            setUserErrorMessage('');
+        };
+    }
 
     return (
         <>
@@ -77,7 +96,8 @@ const Signup = () => {
                                     <Form.Control
                                         placeholder="First name"
                                         name="firstName"
-                                        onChange={handleChange} />
+                                        onChange={handleChange}
+                                        onBlur={handleValidation} />
                                 </Form.Group>
 
                                 <Form.Group controlId="lastName">
@@ -85,7 +105,8 @@ const Signup = () => {
                                     <Form.Control
                                         placeholder="Last name"
                                         name="lastName"
-                                        onChange={handleChange} />
+                                        onChange={handleChange}
+                                        onBlur={handleValidation} />
                                 </Form.Group>
 
                                 <Form.Group controlId="username">
@@ -93,12 +114,18 @@ const Signup = () => {
                                     <Form.Control
                                         placeholder="Input Username"
                                         name="username"
-                                        onChange={handleChange} />
+                                        onChange={handleChange}
+                                        onBlur={handleValidation} />
                                 </Form.Group>
 
                                 <Form.Group controlId="formBasicEmail">
                                     <Form.Label>Email address</Form.Label>
-                                    <Form.Control type="email" placeholder="Enter email" name="email" onChange={handleChange} />
+                                    <Form.Control
+                                        type="email"
+                                        placeholder="Enter email"
+                                        name="email"
+                                        onChange={handleChange}
+                                        onBlur={handleValidation} />
                                     <Form.Text className="text-muted">
                                         We'll never share your email with anyone else.
                                 </Form.Text>
@@ -106,11 +133,21 @@ const Signup = () => {
 
                                 <Form.Group controlId="formBasicPassword">
                                     <Form.Label>Password</Form.Label>
-                                    <Form.Control type="password" placeholder="Password" name="password" onChange={handleChange} />
+                                    <Form.Control
+                                        type="password"
+                                        placeholder="Password"
+                                        name="password"
+                                        onChange={handleChange}
+                                        onBlur={handleValidation} />
                                 </Form.Group>
                                 {
                                     error ? <div>
                                         <p className="text-danger small" >{error.message}</p>
+                                    </div> : null
+                                }
+                                {
+                                    userErrorMessage ? <div>
+                                        <p className="text-danger small" >{userErrorMessage}</p>
                                     </div> : null
                                 }
                                 <Button variant="info" type="submit">
