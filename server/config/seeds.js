@@ -16,6 +16,10 @@ db.once('open', async () => {
         {
             name: 'Entrepreneur',
             id: 2
+        },
+        {
+            name: 'Local Hero',
+            id: 3
         }
     ]);
 
@@ -236,10 +240,20 @@ db.once('open', async () => {
             charity: "The Johnson Ohana Foundation",
             description: "Jack Johnson used every cent of his 2008 tour to start the Johnson Ohana Charitable Foundation, \“an endowment founded by Jack and Kim Johnson to support environmental art and music education now and into the future.\”",
             hometown: "Oahu, Hawaii",
-            charity_url: "The Johnson Ohana Foundation is a non-profit public charity founded in 2008 by Jack and Kim Johnson to promote positive and lasting change within communities by supporting organizations that focus on environmental, art, and music education.",
+            charity_url: "https://johnsonohana.org/about",
             image: "jack_johnson.jpg",
             idol_category: categories[1]._id
+        },
+        {
+            name: "Rhonda Kremer",
+            charity: "Volunteer Work",
+            description: "Professional french horn player by night, full stack developer by day and volunteer tutor to a cohort of people who would be lost without her. We have no charity at this time, but please enjoy her french horn channel on youtube.",
+            hometown: "Slack Channel Near You",
+            charity_url: "https://www.youtube.com/playlist?list=PL0PQUYopKD-IPXoOc7TiqYCO09uQUhbVL",
+            image: "rhonda.jpg",
+            idol_category: categories[3]._id
         }
+
         
     ]);
 
