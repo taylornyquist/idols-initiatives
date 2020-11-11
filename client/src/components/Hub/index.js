@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { QUERY_ALL_IDOLS } from '../../utils/queries';
 // import { Link } from 'react-router-dom';
 import Jumbo from '../Jumbotron'
@@ -9,10 +9,11 @@ import { Jumbotron, Container, Row, Button, Card, CardDeck, ListGroup, ListGroup
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { useDispatch, useSelector } from 'react-redux';
 import { QUERY_MY_IDOLS } from '../../utils/queries';
+import { REMOVE_FROM_HUB } from '../../utils/mutations'
 
 const Hub = () => {
 
-    // change this to QUERY_MY_IDOLS or QUERY_ME???
+    // change this to QUERY_MY_IDOLS 
     const { loading, data } = useQuery(QUERY_MY_IDOLS);
     const myIdols = data?.me.idols || [];
     console.log(myIdols);
@@ -30,9 +31,17 @@ const Hub = () => {
         return filteredIdols;
     };
 
-    const removeFromHub = () => {
+    const [removeIdol, {error}] = useMutation(REMOVE_FROM_HUB);
+    const removeFromHub = async(idolId) => {
         console.log("click");
         // insert dispatch to remove from user's hub here
+        try {
+            const {data} = await removeIdol({
+                variables: {idolId},
+            });
+        } catch(err) {
+            console.log(err);
+        }
     };
 
     return (
