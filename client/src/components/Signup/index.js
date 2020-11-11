@@ -19,6 +19,13 @@ const Signup = () => {
         console.log("clicked submit");
         console.log(formState);
 
+        if (error) {
+            const splitError = error.message.split(":");
+            const displayError = splitError[1];
+            console.log(displayError);
+            alert(displayError)
+        }
+
         try {
             const mutationResponse = await addUser({
                 variables: {
@@ -89,11 +96,11 @@ const Signup = () => {
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control type="password" placeholder="Password" name="password" onChange={handleChange} />
                                 </Form.Group>
-                                {
+                                {/* {
                                     error ? <div>
-                                        <p className="text-danger small" >{error.message}</p>
+                                        <p className="text-danger small" >{displayError}</p>
                                     </div> : null
-                                }
+                                } */}
                                 <Button variant="info" type="submit">
                                     Submit
                                 </Button>
