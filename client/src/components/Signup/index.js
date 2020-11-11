@@ -22,22 +22,22 @@ const Signup = () => {
         console.log("clicked submit");
         console.log(formState);
 
-        // if (!formState.firstName) {
-        //     alert("Please enter your first name!");
-        //     return;
-        // } else if (!formState.lastName) {
-        //     alert("Please enter your last name!");
-        //     return;
-        // } else if (!formState.username) {
-        //     alert("Please enter a username!");
-        //     return;
-        // } else if (!formState.email) {
-        //     alert("Please enter your email address!");
-        //     return;
-        // } else if (!formState.password) {
-        //     alert("Please enter a password!");
-        //     return;
-        // };
+        if (!formState.firstName) {
+            alert("Please enter your first name!");
+            return;
+        } else if (!formState.lastName) {
+            alert("Please enter your last name!");
+            return;
+        } else if (!formState.username) {
+            alert("Please enter a username!");
+            return;
+        } else if (!formState.email) {
+            alert("Please enter your email address!");
+            return;
+        } else if (!formState.password) {
+            alert("Please enter a password!");
+            return;
+        };
 
         // if (error) {
         //     const splitError = error.message.split(":");
