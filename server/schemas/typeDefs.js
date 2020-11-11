@@ -46,7 +46,7 @@ type Query {
 type Mutation {
       addUser(firstName: String!, lastName: String!, username: String!, email: String!, password: String!, admin: Int): Auth
       login(email: String!, password: String!): Auth
-      saveIdol(name: String!, charity: String!, description: String!, hometown: String!, charity_url: String! image: String): Idol
+      saveIdol(name: String!, charity: String!, description: String!, hometown: String!, charity_url: String! image: String, twitter_url: String): Idol
       }
 `;
 
