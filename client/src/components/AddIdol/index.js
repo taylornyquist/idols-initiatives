@@ -1,8 +1,14 @@
-import React from 'react';
+import Reac, { useState } from 'react';
 // import { Link } from 'react-router-dom';
 import { Col, Form, Button, Jumbotron } from 'react-bootstrap';
+import { useMutation } from '@apollo/react-hooks';
+import { SAVE_IDOL } from '../../utils/mutations';
 
 const AddIdol = () => {
+
+    const [formState, setFormState] = useState({
+
+    })
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -24,7 +30,7 @@ const AddIdol = () => {
 
                                 <Form.Group controlId="foundationName">
                                     <Form.Label>Foundation's Name</Form.Label>
-                                    <Form.Control placeholder="Last name" />
+                                    <Form.Control placeholder="Foundation Name" />
                                 </Form.Group>
 
                                 <Form.Group controlId="foundationDescription">
