@@ -81,10 +81,10 @@ const resolvers = {
       },
 
       removeFromHub: async(parent, { idol_id }, context) => {
-        if(context.use) {
+        if(context.user) {
           const updatedUser = await User.findByIdAndUpdate(
             {_id: context.user._id },
-            { XXXX: { idols: idol_id} },
+            { $pull: { idols: idol_id} },
             {new: true}
           );
           return updatedUser;
