@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { QUERY_ALL_IDOLS } from '../../utils/queries';
 // import { Link } from 'react-router-dom';
@@ -8,8 +8,10 @@ import { Jumbotron, Container, Row, Button, Card, CardDeck, ListGroup, ListGroup
 // import idols from '../../utils/seed'
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { useDispatch, useSelector } from 'react-redux';
+import Auth from '../../utils/auth';
 import { QUERY_MY_IDOLS } from '../../utils/queries';
 import { REMOVE_FROM_HUB } from '../../utils/mutations'
+import { removeIdolId } from '../../utils/localStorage';
 
 const Hub = () => {
 
@@ -34,11 +36,20 @@ const Hub = () => {
     const [removeIdol, {error}] = useMutation(REMOVE_FROM_HUB);
     const removeFromHub = async(idolId) => {
         console.log("click");
+        console.log(idolId)
         // insert dispatch to remove from user's hub here
+
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+        if(!token) {
+            alert("You must be logged in to remove idols from your hub!");
+            return false;
+        }
+        
         try {
-            const {data} = await removeIdol({
+            await removeIdol({
                 variables: {idolId},
             });
+            removeIdolId(idolId)       
         } catch(err) {
             console.log(err);
         }
