@@ -8,9 +8,34 @@ const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+
 const server = new ApolloServer({
     typeDefs,
     resolvers,
+    formatError: (err) => {
+        // Don't give the specific errors to the client.
+        if (err.message.startsWith("E11000 duplicate key error collection: idol-initiatives.users index: username")) {
+          return new Error('Username has already been used.');
+        }
+        if (err.message.startsWith("E11000 duplicate key error collection: idol-initiatives.users index: email")) {
+            return new Error('Email has already been used.');
+          }
+        if (err.message.startsWith("User validation failed: password")) {
+            return new Error('Password required.');
+        }
+        if (err.message.startsWith("User validation failed: username")) {
+            return new Error('Username is required.');
+        }
+        if (err.message.startsWith("User validation failed: firstName")) {
+            return new Error('Please tell us your first name.');
+        }
+        if (err.message.startsWith("User validation failed: lastName")) {
+            return new Error('Please tell us your last name.');
+        }
+        // Otherwise return the original error.  The error can also
+        // be manipulated in other ways, so long as it's returned.
+        return err;
+      },
     context: authMiddleware,
 });
 
@@ -40,9 +65,6 @@ app.get('*', (req, res) => {
 db.once('open', () => {
     app.listen(PORT, () => {
         console.log(`API server running on port ${PORT}!`);
-        // log where we can go to test our GQL API
         console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     });
 });
-
-

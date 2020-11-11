@@ -91,7 +91,7 @@ const Signup = () => {
                                 </Form.Group>
                                 {
                                     error ? <div>
-                                        <p className="text-danger small" >Please make sure all fields are completed. The username/email address may already be taken.</p>
+                                        <p className="text-danger small" >{error.message}</p>
                                     </div> : null
                                 }
                                 <Button variant="info" type="submit">
