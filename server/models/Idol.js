@@ -32,7 +32,8 @@ const idolSchema = new Schema({
     },
     idol_category: {
       type: Schema.Types.ObjectId,
-      ref: 'Category'
+      ref: 'Category',
+      required: true
   },
 });
 
