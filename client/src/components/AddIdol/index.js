@@ -69,7 +69,7 @@ const AddIdol = () => {
                                 <Form.Group>
                                     <Form.File id="idolImage" label="Upload Image Here" accept="image/jpeg, image/jpg" />
                                     <Form.Text className="text-muted">
-                                        Please submit a jpg/jpeg image file in 4:3 format.
+                                        Please submit a jpg/jpeg image file in 16:9 format.
                                     </Form.Text>
                                 </Form.Group>
 

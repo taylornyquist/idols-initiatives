@@ -19,7 +19,7 @@ const Cards = () => {
     const [savedIdolIds, setSavedIdolIds] = useState(getSavedIdolIds());
 
     const { loading, data } = useQuery(QUERY_ALL_IDOLS);
-    const idols = data?.idols;
+    const idols = data?.idols || [];
     console.log(idols);
 
     const dispatch = useDispatch();
@@ -72,7 +72,8 @@ const Cards = () => {
 
         <>
             <Jumbo />
-            <CategoryMenu />
+
+            {loading ? null : <CategoryMenu />}
 
             <Container fluid>
                 <Row className="ml-auto mr-auto">
