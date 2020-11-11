@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { QUERY_ALL_IDOLS } from '../../utils/queries';
 // import { Link } from 'react-router-dom';
 import Jumbo from '../Jumbotron'
@@ -8,6 +8,9 @@ import { Container, Row, Button, Card, CardDeck, ListGroup, ListGroupItem, Spinn
 // import idols from '../../utils/seed'
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { ADD_TO_HUB} from '../../utils/mutations';
+
 
 // testing only...
 // const deleteMeLater = {
@@ -40,9 +43,19 @@ const Cards = () => {
         return filteredIdols;
     };
 
-    const addToHub = () => {
+    const [addToHub, { error }] = useMutation(ADD_TO_HUB);
+
+    const handleAddToHub = async (id) => {
         console.log("click");
+        console.log(id);
         // insert dispatch to user's hub here
+        try {
+            await addToHub({
+                variables: { idol_id: id }
+            });
+        } catch (e) {
+            console.error(e);
+        }
     };
 
     return (
@@ -81,7 +94,7 @@ const Cards = () => {
                                             )}
 
                                         </Card.Body>
-                                        <Button onClick={addToHub} variant="info">Add To Hub</Button>{' '}
+                                        <Button onClick={() => handleAddToHub(idol._id)} variant="info">Add To Hub</Button>{' '}
                                     </Card>
                                 </CardDeck>
 
