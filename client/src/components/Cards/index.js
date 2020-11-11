@@ -1,6 +1,7 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { QUERY_ALL_IDOLS } from '../../utils/queries';
+import { ADD_TO_HUB } from '../../utils/mutations';
 // import { Link } from 'react-router-dom';
 import Jumbo from '../Jumbotron'
 import CategoryMenu from '../CategoryMenu'
@@ -40,9 +41,19 @@ const Cards = () => {
         return filteredIdols;
     };
 
-    const addToHub = () => {
+    const [addToHub, { error }] = useMutation(ADD_TO_HUB);
+
+    const handleAddToHub = async (id) => {
         console.log("click");
+        console.log(id);
         // insert dispatch to user's hub here
+        try {
+            await addToHub({
+                variables: { idol_id: id }
+            });
+        } catch (e) {
+            console.error(e);
+        }
     };
 
     return (
@@ -81,14 +92,14 @@ const Cards = () => {
                                             )}
 
                                         </Card.Body>
-                                        <Button onClick={addToHub} variant="info">Add To Hub</Button>{' '}
+                                        <Button onClick={() => handleAddToHub(idol._id)} variant="info">Add To Hub</Button>{' '}
                                     </Card>
                                 </CardDeck>
 
                             ))}
                         </>
                     ) : (
-                        <h1 className="text-secondary mt-3 ml-auto mr-auto">No Idols Yet</h1>
+                            <h1 className="text-secondary mt-3 ml-auto mr-auto">No Idols Yet</h1>
                         )}
                     {loading ?
                         <>

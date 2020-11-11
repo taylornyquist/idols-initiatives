@@ -1,6 +1,6 @@
 import {
     UPDATE_IDOLS,
-    // ADD_TO_CART,
+    // ADD_TO_HUB,
     // UPDATE_CART_QUANTITY,
     // REMOVE_FROM_CART,
     // ADD_MULTIPLE_TO_CART,
@@ -54,6 +54,13 @@ export const reducers = (state = defaultState, action) => {
                 ...state,
                 products: [...action.idols],
             };
+
+        // not sure we need this.  are we storing in state/redux or in graphql???
+        // case ADD_TO_HUB:
+        //     return {
+        //         ...state,
+        //         hub: [...state.hub, action.idol]
+        //     };
 
         default:
             return state;

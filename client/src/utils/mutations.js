@@ -21,3 +21,15 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_TO_HUB = gql`
+mutation addToHub($idol_id: ID!) {
+  addToHub(idol_id: $idol_id) {
+    _id
+    username
+    idols {
+      _id
+    }
+  }
+}
+`;

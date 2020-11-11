@@ -34,7 +34,8 @@ export const QUERY_MY_IDOLS = gql`
                 charity_url
                 image
                 twitter_url
-  	        }
+                idol_category
+            }
         }
     }
 `;
