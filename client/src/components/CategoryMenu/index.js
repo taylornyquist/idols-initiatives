@@ -58,8 +58,6 @@ function CategoryMenu() {
                 });
             });
         }
-
-        // removed "loading" from the following array
     }, [categoryData, loading, dispatch]);
 
     const handleClick = (id) => {
@@ -75,27 +73,29 @@ function CategoryMenu() {
         <>
             <h5 className="mb-3 ml-4">Choose a Category:</h5>
             <Container className="mb-3">
-                <Row>
-                    <Col md={3} >
-                        <Button className="mr-3 mb-3 px-3" variant="secondary" block onClick={() => {
-                            handleClick("clear");
-                        }}>
-                            All Idols
-                            </Button>
-                    </Col>
-
-                    {categories.map(category => (
-                        <Col md={3} key={category._id} >
+                {categories ?
+                    <Row>
+                        <Col md={3} >
                             <Button className="mr-3 mb-3 px-3" variant="secondary" block onClick={() => {
-                                // console.log("clicked" + category.name);
-                                // handleClick(category.id);
-                                handleClick(category._id);
+                                handleClick("clear");
                             }}>
-                                {category.name}
+                                All Idols
                             </Button>
                         </Col>
-                    ))}
-                </Row>
+
+                        {categories.map(category => (
+                            <Col md={3} key={category._id} >
+                                <Button className="mr-3 mb-3 px-3" variant="secondary" block onClick={() => {
+                                    // console.log("clicked" + category.name);
+                                    // handleClick(category.id);
+                                    handleClick(category._id);
+                                }}>
+                                    {category.name}
+                                </Button>
+                            </Col>
+                        ))}
+                    </Row>
+                    : null}
             </Container>
         </>
     );

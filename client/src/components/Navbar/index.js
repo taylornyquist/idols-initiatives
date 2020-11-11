@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import Auth from "../../utils/auth";
 import MemeModal from '../MemeModal'
@@ -23,7 +23,7 @@ const Navigation = () => {
                             <>
                                 <Nav.Link href="/hub">My Hub</Nav.Link>
                                 <Nav.Link href="/add-idol">Add Idol</Nav.Link>
-                                <Nav.Link href="/" onClick={logout}>Logout</Nav.Link>
+                                <Nav.Link onClick={logout}>Logout</Nav.Link>
                             </>
                         ) : (
                                 <>

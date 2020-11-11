@@ -12,6 +12,15 @@ function Login(props) {
     const handleFormSubmit = async event => {
         event.preventDefault();
         // console.log("handleForm Initiated");
+
+        if (!formState.email) {
+            alert("Please enter your email address!");
+            return;
+        } else if (!formState.password) {
+            alert("Please enter your password!");
+            return;
+        };
+
         try {
             const mutationResponse = await login({ variables: { email: formState.email, password: formState.password } })
             const token = mutationResponse.data.login.token;

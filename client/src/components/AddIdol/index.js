@@ -1,4 +1,4 @@
-import Reac, { useState } from 'react';
+import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
 import { Col, Form, Button, Jumbotron } from 'react-bootstrap';
 import { useMutation } from '@apollo/react-hooks';
