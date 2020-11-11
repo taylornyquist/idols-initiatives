@@ -39,7 +39,7 @@ const Hub = () => {
 
         <>
             <Jumbotron className="py-4">
-                <h1>My Hub</h1>
+                <h1 className="text-seconary">My Hub</h1>
             </Jumbotron>
 
             <CategoryMenu />
