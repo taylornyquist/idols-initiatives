@@ -10,7 +10,13 @@ const About = () => {
             <h1>About the Authors</h1>
             <h3>Taylor Nyquist</h3>
             <p className="mt-3">
-                Bootstrap Wizard
+            In early high school my summer job was framing houses for my uncle’s construction company. Every year we sponsored several Habitat For Humanity builds in my hometown of Rockford, IL. 
+            This began my love for “hands on” charity work. 
+            <br></br>
+            <br></br>
+            Over the years I have been involved with Habitat For Humanity which helps families build and improve places to call home, 
+            Kids Around the World which establishes playgrounds in poverty-stricken communities around the world, and Hands On Nashville whose mission is to meet community needs 
+            through volunteerism. On a special occasion I was able to volunteer with the USO performing concerts for the troops in Iraq and Kuwait.
             </p>
             <h3>Mike Portu</h3>
             <p>
