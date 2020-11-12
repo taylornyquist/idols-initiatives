@@ -1,5 +1,5 @@
-import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import React, {useState} from 'react';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { QUERY_ALL_IDOLS } from '../../utils/queries';
 // import { Link } from 'react-router-dom';
 // import Jumbo from '../Jumbotron'
@@ -8,15 +8,19 @@ import { Jumbotron, Container, Row, Button, Card, CardDeck, ListGroup, ListGroup
 // import idols from '../../utils/seed'
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { useDispatch, useSelector } from 'react-redux';
+import Auth from '../../utils/auth';
 import { QUERY_MY_IDOLS } from '../../utils/queries';
+import { REMOVE_FROM_HUB } from '../../utils/mutations'
+import { removeIdolId } from '../../utils/localStorage';
 
 const Hub = () => {
 
-    // change this to QUERY_MY_IDOLS or QUERY_ME???
+    // change this to QUERY_MY_IDOLS 
     const { loading, data } = useQuery(QUERY_MY_IDOLS);
     const myIdols = data?.me.idols || [];
     console.log(myIdols);
-
+    const [removeIdol, {error}] = useMutation(REMOVE_FROM_HUB);
+    
     const dispatch = useDispatch();
     const state = useSelector(state => state);
     const { currentCategory } = state;
@@ -30,9 +34,26 @@ const Hub = () => {
         return filteredIdols;
     };
 
-    const removeFromHub = () => {
+    
+    const removeFromHub = async(idolId) => {
         console.log("click");
+        console.log(idolId)
         // insert dispatch to remove from user's hub here
+
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+        if(!token) {
+            alert("You must be logged in to remove idols from your hub!");
+            return false;
+        }
+        
+        try {
+            await removeIdol({
+                variables: {idol_id: idolId},
+            });
+        removeIdolId(idolId)       
+        } catch(err) {
+            console.log(err);
+        }
     };
 
     return (
@@ -74,7 +95,7 @@ const Hub = () => {
                                             )}
 
                                         </Card.Body>
-                                        <Button onClick={removeFromHub} variant="info">Remove From Hub</Button>{' '}
+                                        <Button onClick={() => removeFromHub(idol._id)} variant="info">Remove From Hub</Button>{' '}
                                     </Card>
                                 </CardDeck>
 

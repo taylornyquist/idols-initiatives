@@ -48,6 +48,7 @@ type Mutation {
       login(email: String!, password: String!): Auth
       saveIdol(name: String!, charity: String!, description: String!, hometown: String!, charity_url: String! image: String, image: String, twitter_url: String, idol_category:String): Idol
       addToHub(idol_id: ID!): User  
+      removeFromHub( idol_id: ID!): User
     }
 `;
 
