@@ -19,7 +19,8 @@ const Hub = () => {
     const { loading, data } = useQuery(QUERY_MY_IDOLS);
     const myIdols = data?.me.idols || [];
     console.log(myIdols);
-
+    const [removeIdol, {error}] = useMutation(REMOVE_FROM_HUB);
+    
     const dispatch = useDispatch();
     const state = useSelector(state => state);
     const { currentCategory } = state;
@@ -33,7 +34,7 @@ const Hub = () => {
         return filteredIdols;
     };
 
-    const [removeIdol, {error}] = useMutation(REMOVE_FROM_HUB);
+    
     const removeFromHub = async(idolId) => {
         console.log("click");
         console.log(idolId)
@@ -47,9 +48,9 @@ const Hub = () => {
         
         try {
             await removeIdol({
-                variables: {idolId},
+                variables: {idol_id: idolId},
             });
-            removeIdolId(idolId)       
+        removeIdolId(idolId)       
         } catch(err) {
             console.log(err);
         }
@@ -94,7 +95,7 @@ const Hub = () => {
                                             )}
 
                                         </Card.Body>
-                                        <Button onClick={removeFromHub} variant="info">Remove From Hub</Button>{' '}
+                                        <Button onClick={() => removeFromHub(idol._id)} variant="info">Remove From Hub</Button>{' '}
                                     </Card>
                                 </CardDeck>
 
