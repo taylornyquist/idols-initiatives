@@ -103,7 +103,7 @@ function CategoryMenu() {
                                 <Button className="mr-3 mb-3 px-3" variant="secondary" block onClick={() => {
                                     handleClick("clear");
                                 }}>
-                                    Reset
+                                    Show All
                                 </Button>
                             </Col>
 
