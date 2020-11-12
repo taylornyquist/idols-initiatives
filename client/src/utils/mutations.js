@@ -33,3 +33,16 @@ mutation addToHub($idol_id: ID!) {
   }
 }
 `;
+
+export const REMOVE_FROM_HUB = gql `
+mutation removeFromHub($idol_id: ID!) {
+  removeFromHub(idol_id: $idol_id) {
+    _id
+    username
+    idols {
+      _id
+    }
+  }
+}
+
+`
