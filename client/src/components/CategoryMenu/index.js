@@ -76,24 +76,15 @@ function CategoryMenu() {
                     {/* <h5 className="mb-3 ml-4 mr-2">Choose a Category:</h5> */}
                     <h5 className="">Choose a Category:</h5>
                 </Col>
+
                 <Col sm={6} md={1}>
-                    <Button className="px-4 font-italic" size="sm" variant="outline-info" onClick={() => {
-                        handleClick("clear");
-                    }}>
-                        Reset
-                    </Button>
+
                 </Col>
             </Row>
 
             <Container className="mb-3">
                 {categories ?
                     <>
-                        <Row>
-                            <Col md={3} >
-
-                            </Col>
-                        </Row>
-
                         <Row>
 
                             {categories.map(category => (
@@ -107,6 +98,15 @@ function CategoryMenu() {
                                     </Button>
                                 </Col>
                             ))}
+
+                            <Col md={3} >
+                                <Button className="mr-3 mb-3 px-3" variant="secondary" block onClick={() => {
+                                    handleClick("clear");
+                                }}>
+                                    Show All
+                                </Button>
+                            </Col>
+
                         </Row>
                     </>
                     : null}
