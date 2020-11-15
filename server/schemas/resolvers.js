@@ -62,10 +62,11 @@ const resolvers = {
       },
       saveIdol: async (parent, args, context) => {
         if (context.user) {
-            const newIdol = await Idol.create(args);
+            const addedIdol = await Idol.create( args );
 
-            return newIdol;
+            return addedIdol;
           }
+          throw new AuthenticationError('You need to be logged in!');
         },
 
       addToHub: async (parent, { idol_id }, context) => {
