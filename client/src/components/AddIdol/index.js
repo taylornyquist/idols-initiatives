@@ -13,6 +13,8 @@ const AddIdol = () => {
         hometown: '',
         charity_url: '',
         twitter_url: '',
+        image: '',
+        idol_cateogry: ''
     });
 
     const handleSubmit = (event) => {
@@ -105,10 +107,26 @@ const AddIdol = () => {
                                 </Form.Group>
 
                                 <Form.Group>
-                                    <Form.File id="idolImage" label="Upload Image Here" accept="image/jpeg, image/jpg" />
+                                    <Form.File id="idolImage" 
+                                        label="Upload Image Here" 
+                                        accept="image/jpeg, image/jpg" 
+                                        name="image"
+                                        onChange = {handleChange}/>
                                     <Form.Text className="text-muted">
                                         Please submit a jpg/jpeg image file in 16:9 format.
                                     </Form.Text>
+                                </Form.Group>
+
+                                <Form.Group>
+                                    <Form.Label>Select Category</Form.Label>
+                                    <Form.Control 
+                                        as="select"
+                                        name="idol_category"
+                                        onChange={handleChange}>
+                                        <option>Athlete</option>
+                                        <option>Musician</option>
+                                        <option>Entrepreneur</option>
+                                    </Form.Control>
                                 </Form.Group>
 
                                 <Button className="float-right" onClick={handleSubmit} variant="info" type="submit">
