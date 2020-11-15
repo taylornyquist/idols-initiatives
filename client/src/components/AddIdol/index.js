@@ -2,18 +2,34 @@ import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
 import { Col, Form, Button, Jumbotron } from 'react-bootstrap';
 import { useMutation } from '@apollo/react-hooks';
-import { SAVE_IDOL } from '../../utils/mutations';
+import { SAVE_NEW_IDOL } from '../../utils/mutations';
 
 const AddIdol = () => {
 
     const [formState, setFormState] = useState({
-
-    })
+        name: '',
+        chairt: '',
+        description: '',
+        hometown: '',
+        charity_url: '',
+        twitter_url: '',
+    });
 
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("click");
+        console.log(formState)
         // insert dispatch to signup user here
+    };
+
+    const handleChange = event => {
+
+        const { name, value } = event.target;
+
+        setFormState({
+            ...formState,
+            [name]: value
+        });
     };
 
     return (
@@ -25,17 +41,28 @@ const AddIdol = () => {
 
                                 <Form.Group controlId="idolName">
                                     <Form.Label>Idol's Full Name</Form.Label>
-                                    <Form.Control placeholder="Idol name" />
+                                    <Form.Control 
+                                        placeholder="Idol name"
+                                        name="name"
+                                        onChange={handleChange} />
                                 </Form.Group>
 
                                 <Form.Group controlId="foundationName">
                                     <Form.Label>Foundation's Name</Form.Label>
-                                    <Form.Control placeholder="Foundation Name" />
+                                    <Form.Control 
+                                        placeholder="Foundation Name"
+                                        name = "charity"
+                                        onChange={handleChange} />
                                 </Form.Group>
 
                                 <Form.Group controlId="foundationDescription">
                                     <Form.Label>Description of Foundation</Form.Label>
-                                    <Form.Control as="textarea" rows={8} placeholder="Write description here..." />
+                                    <Form.Control 
+                                        as="textarea" 
+                                        rows={8} 
+                                        placeholder="Write description here..."
+                                        name = "description"
+                                        onChange={handleChange} />
                                     <Form.Text className="text-muted">
                                         280 characters or less
                                     </Form.Text>
@@ -47,12 +74,19 @@ const AddIdol = () => {
 
                                 <Form.Group controlId="idolHometown">
                                     <Form.Label>Idol's Hometown</Form.Label>
-                                    <Form.Control placeholder="Smallville, KS " />
+                                    <Form.Control 
+                                        placeholder="Smallville, KS "
+                                        name="hometown"
+                                        onChange={handleChange} />
                                 </Form.Group>
 
                                 <Form.Group controlId="foundationUrl">
                                     <Form.Label>Foundation Url</Form.Label>
-                                    <Form.Control type="url" placeholder="https://www.myfoundation.com" />
+                                    <Form.Control 
+                                        type="url" 
+                                        placeholder="https://www.myfoundation.com"
+                                        name = "charity_url"
+                                        onChange={handleChange} />
                                     <Form.Text className="text-muted">
                                         Please include the correct prefix.  Ex: "https://www."
                                     </Form.Text>
@@ -60,7 +94,11 @@ const AddIdol = () => {
 
                                 <Form.Group controlId="idolTwitter">
                                     <Form.Label>Idol's Twitter Url</Form.Label>
-                                    <Form.Control type="url" placeholder="https://twitter.com/MyTwitter" />
+                                    <Form.Control 
+                                        type="url" 
+                                        placeholder="https://twitter.com/MyTwitter" 
+                                        name="twitter_url"
+                                        onChange={handleChange}/>
                                     <Form.Text className="text-muted">
                                         Please include the correct prefix.  Ex: "https://"
                                     </Form.Text>
