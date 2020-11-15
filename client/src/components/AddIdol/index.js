@@ -8,20 +8,40 @@ const AddIdol = () => {
 
     const [formState, setFormState] = useState({
         name: '',
-        chairt: '',
+        charity: '',
         description: '',
         hometown: '',
         charity_url: '',
         twitter_url: '',
         image: '',
-        idol_cateogry: ''
+        idol_category: ''
     });
 
-    const handleSubmit = (event) => {
+    const [addNewIdol, { error }] = useMutation(SAVE_NEW_IDOL);
+
+    const handleSubmit = async event => {
         event.preventDefault();
         console.log("click");
         console.log(formState)
         // insert dispatch to signup user here
+
+        try{
+            const mutationResponse = await addNewIdol({
+                variables: {
+                    name: formState.name.trim(),
+                    charity: formState.charity.trim(),
+                    description: formState.description.trim(),
+                    hometown: formState.hometown.trim(),
+                    charity_url: formState.charity_url.trim(),
+                    twitter_url: formState.twitter_url.trim(),
+                    image: formState.image,
+                    idol_category: formState.idol_category
+                }
+            });
+            console.log(mutationResponse);
+        } catch(e){
+            console.log(e)
+        }
     };
 
     const handleChange = event => {
