@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
-import { QUERY_ALL_IDOLS } from '../../utils/queries';
+// import { QUERY_ALL_IDOLS } from '../../utils/queries';
 // import { Link } from 'react-router-dom';
 // import Jumbo from '../Jumbotron'
 import CategoryMenu from '../CategoryMenu'

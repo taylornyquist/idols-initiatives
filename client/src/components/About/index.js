@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
-import { Container, Jumbotron, Button, Card, CardDeck, CardGroup, CardImg } from 'react-bootstrap';
+import { Card, CardDeck } from 'react-bootstrap';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 

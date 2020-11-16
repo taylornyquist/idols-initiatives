@@ -7,19 +7,19 @@ import { SAVE_NEW_IDOL } from '../../utils/mutations';
 const categories = [
     {
         name: 'Athlete',
-        id: "5fac7c8a118b95163b46402d"
+        id: "5fb1b975970df60b1ebff1eb"
     },
     {
         name: 'Musician',
-        id: "5fac7c8a118b95163b46402e"
+        id: "5fb1b975970df60b1ebff1ec"
     },
     {
         name: 'Entrepreneur',
-        id: "5fac7c8a118b95163b46402f"
+        id: "5fb1b975970df60b1ebff1ed"
     },
     {
         name: 'Local Hero',
-        id: "5fac7c8a118b95163b464030"
+        id: "5fb1b975970df60b1ebff1ee"
     }
 ];
 
@@ -37,6 +37,25 @@ const AddIdol = () => {
     });
 
     const [addNewIdol, { error }] = useMutation(SAVE_NEW_IDOL);
+    const [descriptionBody, setBody] = useState('');
+    const [characterCount, setCharacterCount] = useState(0);
+
+    const handleDescriptionChange = event => {
+        if (event.target.value.length <= 280) {
+            setBody(event.target.value);
+            setCharacterCount(event.target.value.length);
+        }
+    };
+
+    const handleChange = event => {
+
+        const { name, value } = event.target;
+
+        setFormState({
+            ...formState,
+            [name]: value
+        });
+    };
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -63,7 +82,7 @@ const AddIdol = () => {
                 variables: {
                     name: formState.name.trim(),
                     charity: formState.charity.trim(),
-                    description: formState.description.trim(),
+                    description: descriptionBody.trim(),
                     hometown: formState.hometown.trim(),
                     charity_url: formState.charity_url.trim(),
                     twitter_url: formState.twitter_url.trim(),
@@ -71,20 +90,14 @@ const AddIdol = () => {
                     idol_category: formState.idol_category
                 }
             });
+            // clear form value
+            setBody('');
+            setCharacterCount(0);
             console.log(mutationResponse);
+            window.location.assign('/');
         } catch (e) {
-            console.log(e)
+            console.error(e)
         }
-    };
-
-    const handleChange = event => {
-
-        const { name, value } = event.target;
-
-        setFormState({
-            ...formState,
-            [name]: value
-        });
     };
 
     return (
@@ -117,10 +130,15 @@ const AddIdol = () => {
                                     rows={8}
                                     placeholder="Write description here..."
                                     name="description"
-                                    onChange={handleChange} />
-                                <Form.Text className="text-muted">
-                                    280 characters or less
-                                    </Form.Text>
+                                    value={descriptionBody}
+                                    onChange={handleDescriptionChange} />
+                                <Form.Text className={characterCount === 280 || error ? 'text-danger' : 'text-muted'}>
+                                    Character Count: {characterCount}/280
+                                    
+                                </Form.Text>
+                                <Form.Text>
+                                    {error && <span className="text-danger">Something went wrong...</span>}
+                                </Form.Text>
                             </Form.Group>
 
                         </Form.Group>
@@ -156,7 +174,7 @@ const AddIdol = () => {
                                     onChange={handleChange} />
                                 <Form.Text className="text-muted">
                                     Please include the correct prefix.  Ex: "https://"
-                                    </Form.Text>
+                                </Form.Text>
                             </Form.Group>
 
                             <Form.Group controlId="idolCategory">
@@ -182,7 +200,10 @@ const AddIdol = () => {
                                     onChange={handleChange} />
                                 <Form.Text className="text-muted">
                                     Please submit a jpg/jpeg image file in 16:9 format.
-                                    </Form.Text>
+                                </Form.Text>
+                                <Form.Text className="text-muted font-italic">
+                                    *This is for a future expansion.  For now, admins will assign an image upon approval.
+                                </Form.Text>
                             </Form.Group>
 
                             <Button className="float-right" onClick={handleSubmit} variant="info" type="submit">
