@@ -1,5 +1,5 @@
 # Idols Initiatives
-* A React and GraphQL site to browse celebrities' foundations in order to raise awareness and donations for charitible causes.
+A React and GraphQL site to browse celebrities' foundations in order to raise awareness and donations for charitible causes.
 
 ![License](https://img.shields.io/badge/license-ISC-brightgreen)
 ![Language](https://img.shields.io/github/languages/top/taylornyquist/idols-initiatives)
