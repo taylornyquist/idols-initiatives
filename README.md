@@ -26,6 +26,9 @@
 <img src="./client/public/screen-shots/screen-shot3.png" alt="" />
 <img src="./client/public/screen-shots/screen-shot4.png" alt="" />
 <img src="./client/public/screen-shots/screen-shot5.png" alt="" />
+<img src="./client/public/screen-shots/screen-shot6.png" alt="" />
+<img src="./client/public/screen-shots/screen-shot7.png" alt="" />
+<img src="./client/public/screen-shots/screen-shot8.png" alt="" />
 
 ## Table of Contents
 
