@@ -40,7 +40,7 @@ db.once('open', async () => {
         },
         {
             name: "Cristiano Ronoldo",
-            charity: "Lebron James Family Foundation",
+            charity: "Save the Children",
             description: "Ronaldo is an ambassador for three major charities - Save the Children, Unicef and World Vision",
             hometown: "Funchal, Portugal",
             charity_url: "https://www.savethechildren.org/",
@@ -125,6 +125,7 @@ db.once('open', async () => {
             hometown: "Portsmouth, New Hampshire",
             charity_url: "https://diocancerfund.org/",
             image: "dio.jpg",
+            twitter_url: "https://twitter.com/OfficialRJDio",
             idol_category: categories[1]._id
         },
         {
@@ -134,6 +135,7 @@ db.once('open', async () => {
             hometown: "Pinner, Middlesex, England",
             charity_url: "https://www.eltonjohnaidsfoundation.org/",
             image: "eltonjohn.jpg",
+            twitter_url: "https://twitter.com/eltonofficial",
             idol_category: categories[1]._id
         },
         {
@@ -143,6 +145,7 @@ db.once('open', async () => {
             hometown: "Seattle, WA",
             charity_url: "https://pearljam.com/acts/vitalogy",
             image: "pearljam.jpg",
+            twitter_url: "https://twitter.com/PearlJam",
             idol_category: categories[1]._id
         },
         {
@@ -152,6 +155,7 @@ db.once('open', async () => {
             hometown: "Granite Falls, NC",
             charity_url: "https://www.ericchurch.com/chief-cares",
             image: "ericchurch.jpg",
+            twitter_url: "https://twitter.com/ericchurch",
             idol_category: categories[1]._id
         },
         {
@@ -161,6 +165,7 @@ db.once('open', async () => {
             hometown: "Senegal",
             charity_url: "http://konfidence.org/",
             image: "akon.jpg",
+            twitter_url: "https://twitter.com/Akon",
             idol_category: categories[1]._id
         },
         {
@@ -170,6 +175,7 @@ db.once('open', async () => {
             hometown: "Chicago, IL",
             charity_url: "https://www.socialworkschi.org/",
             image: "ctrapper.jpg",
+            twitter_url: "https://twitter.com/chancetherapper",
             idol_category: categories[1]._id
         },
         {
@@ -179,15 +185,17 @@ db.once('open', async () => {
             hometown: "Sayreville, NJ",
             charity_url: "https://jbjsf.org/",
             image: "bonjovi.jpg",
+            twitter_url: "https://twitter.com/jonbonjovi",
             idol_category: categories[1]._id
         },
         {
-            name: "Warren Buffet",
+            name: "Warren Buffett",
             charity: "The Giving Pledge",
             description: "Buffett has said he will give away more than 99% of his fortune, with the bulk going to the Bill and Melinda Gates Foundation; a charity founded by Buffett's late wife, Susan Thompson Buffett; and charities run by each of his three children.",
             hometown: "Omaha, NE",
             charity_url: "https://givingpledge.org/",
             image: "buffett.jpg",
+            twitter_url: "https://twitter.com/warrenbuffett",
             idol_category: categories[2]._id
         },
         {
@@ -197,6 +205,7 @@ db.once('open', async () => {
             hometown: "Seattle, WA",
             charity_url: "https://www.gatesfoundation.org/",
             image: "gates.jpg",
+            twitter_url: "https://twitter.com/BillGates",
             idol_category: categories[2]._id
         },
         {
@@ -206,6 +215,7 @@ db.once('open', async () => {
             hometown: "Durham, NC",
             charity_url: "https://www.humangoodkind.com/",
             image: "deltarae.jpg",
+            twitter_url: "https://twitter.com/DeltaRae",
             idol_category: categories[1]._id
         },
         {
@@ -215,6 +225,7 @@ db.once('open', async () => {
             hometown: "Denver, CO",
             charity_url: "http://www.rickschaden.com/americas-road-home-helps-homeless-families/",
             image: "Rick_Schaden.jpg",
+            twitter_url: "https://twitter.com/rickschaden",
             idol_category: categories[2]._id
         },
         {
@@ -224,15 +235,17 @@ db.once('open', async () => {
             hometown: "San Diego, CA",
             charity_url: "https://skatepark.org/",
             image: "t_hawk.jpg",
+            twitter_url: "https://twitter.com/tonyhawk",
             idol_category: categories[0]._id
         },
         {
             name: "Craig Newmark",
             charity: "Thunder Bay, Ontario",
-            description: "This founder of famous Craigs List supports and funds nonprofit journalism, adopting the guidelines of the American Press Institute. \"Those who do well should take less and give more. Let's each do our part to serve the public interest. We need all hands on deck.\"",
+            description: "This founder of the famous Craigslist supports and funds nonprofit journalism, adopting the guidelines of the American Press Institute. \"Those who do well should take less and give more. Let's each do our part to serve the public interest. We need all hands on deck.\"",
             hometown: "Thunder Bay, Ontario",
             charity_url: "https://craignewmarkphilanthropies.org/",
             image: "craig-newmark.jpg",
+            twitter_url: "https://twitter.com/craignewmark",
             idol_category: categories[2]._id
         },
         {
@@ -242,6 +255,7 @@ db.once('open', async () => {
             hometown: "Oahu, Hawaii",
             charity_url: "https://johnsonohana.org/about",
             image: "jack_johnson.jpg",
+            twitter_url: "https://twitter.com/jackjohnson",
             idol_category: categories[1]._id
         },
         {
@@ -251,10 +265,9 @@ db.once('open', async () => {
             hometown: "Slack Channel Near You",
             charity_url: "https://www.youtube.com/playlist?list=PL0PQUYopKD-IPXoOc7TiqYCO09uQUhbVL",
             image: "rhonda.jpg",
+            twitter_url: "https://twitter.com/rhonduhkremer",
             idol_category: categories[3]._id
         }
-
-        
     ]);
 
     console.log('idols seeded');

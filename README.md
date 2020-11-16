@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+# Idols Initiatives
+* A React and GraphQL site to search 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+* This is an e-commerce site originally built using React's built in Context for global state management.  It has been refactored to utilize the third party Redux.
 
-## Available Scripts
+* The backend is a Node.js server hosted on Heroku utilizing a MongoDB Atlas NoSQL via GraphQL.
 
-In the project directory, you can run:
+* The frontend was built using React and is an e-commerce site called Shop-Shop which sells goods.  Users can create a login, browse, add items to cart and then purchase via Stripe.
 
-### `npm start`
+## Links
+* [GitHub Repo Link](https://github.com/taylornyquist/shop-shop-redux)
+* [Link to Deployed Application](https://mysterious-wildwood-94060.herokuapp.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Screen Shots
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<img src="./client/public/screen-shots/screen-shot1.png" alt="" />
+<img src="./client/public/screen-shots/screen-shot2.png" alt="" />
+<img src="./client/public/screen-shots/screen-shot3.png" alt="" />
+<img src="./client/public/screen-shots/screen-shot4.png" alt="" />
+<img src="./client/public/screen-shots/screen-shot5.png" alt="" />
 
-### `npm test`
+## Table of Contents
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* [Usage](#usage)
+* [Installation](#installation)
+* [Run](#run)
+* [Technology](#technology)
+* [Questions](#questions)
+* [Contribution](#contribution)
 
-### `npm run build`
+## Usage
+Visit the Heroku [link](https://mysterious-wildwood-94060.herokuapp.com/) to use the deployed application.  There you can create a login, browse, add to cart and checkout.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run application locally, go to GitHub to clone the repo on your machine.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
+To install necessary dependencies, run the following command:
+```
+npm init
+```
+```
+npm install
+```
+This should install the following dependencies into package.json:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Root package.json:
+```
+ "dependencies": {
+    "if-env": "^1.0.4"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  }
+```
 
-### `npm run eject`
+Server package.json:
+```
+  "dependencies": {
+    "apollo-server-express": "^2.11.0",
+    "bcrypt": "^4.0.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.7",
+    "stripe": "^8.119.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Client package.json:
+```
+  "dependencies": {
+    "@apollo/react-hooks": "^3.1.3",
+    "@stripe/stripe-js": "^1.11.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "apollo-boost": "^0.4.7",
+    "apollo-link-context": "^1.0.20",
+    "graphql": "^14.6.0",
+    "graphql-tag": "^2.10.3",
+    "jwt-decode": "^2.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8"
+  },
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Run
+To run the application as a local host, run:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+npm run seed
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+npm start
+```
 
-## Learn More
+## Technology
+This application used the following technology:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* HTML
+* CSS
+* JavaScript
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose JS
+* React
+* React Router
+* Redux
+* Redux DevTools
+* GraphQL
+* Apollo
+* JSON Web Tokens
+* bcrypt
+* Stripe
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Questions
+If you have any questions about the repo, open an issue or contact me directly at tnyquist@gmail.com.  You can find more of my work at [taylornyquist](https://github.com/taylornyquist).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contribution
+* Taylor Nyquist

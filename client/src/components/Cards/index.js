@@ -20,12 +20,12 @@ const Cards = () => {
 
     const { loading, data } = useQuery(QUERY_ALL_IDOLS);
     const idols = data?.idols || [];
-    console.log(idols);
+    // console.log(idols);
 
     const dispatch = useDispatch();
     const state = useSelector(state => state);
     const { currentCategory } = state;
-    console.log(currentCategory);
+    // console.log(currentCategory);
 
     function filterIdols() {
         if (!currentCategory || currentCategory === "clear") {
@@ -46,8 +46,8 @@ const Cards = () => {
     const [addToHub, { error }] = useMutation(ADD_TO_HUB);
 
     const handleAddToHub = async (id) => {
-        console.log("click");
-        console.log(id);
+        // console.log("click");
+        // console.log(id);
 
         // get token
         const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -105,16 +105,25 @@ const Cards = () => {
                                             )}
 
                                         </Card.Body>
-                                        <Button
-                                            disabled={savedIdolIds?.some((savedIdolId) => savedIdolId === idol._id)}
-                                            onClick={() => handleAddToHub(idol._id)}
-                                            variant={savedIdolIds?.some((savedIdolId) => savedIdolId === idol._id)
-                                                ? 'danger'
-                                                : 'info'}>
-                                            {savedIdolIds?.some((savedIdolId) => savedIdolId === idol._id)
-                                                ? 'Added To Hub'
-                                                : 'Add To Hub'}
-                                        </Button>{' '}
+                                        {Auth.loggedIn() ?
+                                            <>
+                                                <Button
+                                                    disabled={savedIdolIds?.some((savedIdolId) => savedIdolId === idol._id)}
+                                                    onClick={() => handleAddToHub(idol._id)}
+                                                    variant={savedIdolIds?.some((savedIdolId) => savedIdolId === idol._id)
+                                                        ? 'danger'
+                                                        : 'info'}>
+                                                    {savedIdolIds?.some((savedIdolId) => savedIdolId === idol._id)
+                                                        ? 'Added To Hub'
+                                                        : 'Add To Hub'}
+                                                </Button>{' '}
+                                            </> :
+                                            <Button
+                                                disabled
+                                                variant="secondary">
+                                                Login To Add To Hub
+                                            </Button>
+                                        }
                                     </Card>
                                 </CardDeck>
 

@@ -12,7 +12,7 @@ function CategoryMenu() {
     const state = useSelector(state => state);
 
     const { categories } = state;
-    console.log(categories);
+    // console.log(categories);
     const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
 
     // this will eventually need to be moved to the server side seed
@@ -65,31 +65,27 @@ function CategoryMenu() {
             type: UPDATE_CURRENT_CATEGORY,
             currentCategory: id
         });
-        console.log("clicked " + id);
-        console.log(state);
+        // console.log("clicked " + id);
+        // console.log(state);
     };
 
     return (
         <>
-            <Row className="text-center mb-3">
+            <Row className="text-center">
                 <Col sm={6} md={4}>
                     {/* <h5 className="mb-3 ml-4 mr-2">Choose a Category:</h5> */}
-                    <h5 className="">Choose a Category:</h5>
-                </Col>
-
-                <Col sm={6} md={1}>
-
+                    <h5 className="text-secondary">Choose a Category:</h5>
                 </Col>
             </Row>
 
             <Container className="mb-3">
                 {categories ?
                     <>
-                        <Row>
+                        <Row className="justify-content-center">
 
                             {categories.map(category => (
                                 <Col md={3} key={category._id} >
-                                    <Button className="mr-3 mb-3 px-3" variant="secondary" block onClick={() => {
+                                    <Button className="m-1 px-3" variant="secondary" block onClick={() => {
                                         // console.log("clicked" + category.name);
                                         // handleClick(category.id);
                                         handleClick(category._id);
@@ -100,7 +96,7 @@ function CategoryMenu() {
                             ))}
 
                             <Col md={3} >
-                                <Button className="mr-3 mb-3 px-3" variant="secondary" block onClick={() => {
+                                <Button className="m-1 px-3" variant="secondary" block onClick={() => {
                                     handleClick("clear");
                                 }}>
                                     Show All
