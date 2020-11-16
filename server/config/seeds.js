@@ -41,7 +41,7 @@ db.once('open', async () => {
         {
             name: "Cristiano Ronoldo",
             charity: "Save the Children",
-            description: "Ronaldo is an ambassador for three major charities - Save the Children, Unicef and World Vision",
+            description: "Ronaldo is an ambassador for three major charities - Save the Children, Unicef and World Vision.  In 2015, Ronaldo was named as the most charitable sports star in the world by dosomething.org, which recognised his ambassadorship, his donations to charities, and varies other causes he has been involved with.",
             hometown: "Funchal, Portugal",
             charity_url: "https://www.savethechildren.org/",
             image: "cristiano.jpg",
