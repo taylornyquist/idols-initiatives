@@ -64,6 +64,7 @@ function Login(props) {
                                     <Form.Control
                                         name="password"
                                         type="password"
+                                        placeholder="Enter password"
                                         onChange={handleChange}
                                     />
                                 </Form.Group>

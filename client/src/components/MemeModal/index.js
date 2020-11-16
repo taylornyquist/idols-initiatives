@@ -39,11 +39,6 @@ const charityMemes = [
         image: "/memes/matrix.jpg"
     },
     {
-        id: 0,
-        name: "I call it Charity",
-        image: "/memes/Matt.jpg"
-    },
-    {
         id: 7,
         name: "Willy Wonka",
         image: "/memes/willy-wonka.jpg"

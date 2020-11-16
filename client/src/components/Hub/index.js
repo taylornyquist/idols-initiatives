@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
-import { QUERY_ALL_IDOLS } from '../../utils/queries';
+// import { QUERY_ALL_IDOLS } from '../../utils/queries';
 // import { Link } from 'react-router-dom';
 // import Jumbo from '../Jumbotron'
 import CategoryMenu from '../CategoryMenu'
@@ -18,13 +18,13 @@ const Hub = () => {
     // change this to QUERY_MY_IDOLS 
     const { loading, data } = useQuery(QUERY_MY_IDOLS);
     const myIdols = data?.me.idols || [];
-    console.log(myIdols);
+    // console.log(myIdols);
     const [removeIdol, {error}] = useMutation(REMOVE_FROM_HUB);
     
     const dispatch = useDispatch();
     const state = useSelector(state => state);
     const { currentCategory } = state;
-    console.log(currentCategory);
+    // console.log(currentCategory);
 
     function filterIdols() {
         if (!currentCategory || currentCategory === "clear") {
@@ -36,8 +36,8 @@ const Hub = () => {
 
     
     const removeFromHub = async(idolId) => {
-        console.log("click");
-        console.log(idolId)
+        // console.log("click");
+        // console.log(idolId)
         // insert dispatch to remove from user's hub here
 
         const token = Auth.loggedIn() ? Auth.getToken() : null;

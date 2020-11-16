@@ -19,8 +19,8 @@ const Signup = () => {
 
     const handleSigup = async event => {
         event.preventDefault();
-        console.log("clicked submit");
-        console.log(formState);
+        // console.log("clicked submit");
+        // console.log(formState);
 
         if (!formState.firstName) {
             alert("Please enter your first name!");
@@ -135,7 +135,7 @@ const Signup = () => {
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control
                                         type="password"
-                                        placeholder="Password"
+                                        placeholder="Enter password"
                                         name="password"
                                         onChange={handleChange}
                                         onBlur={handleValidation} />

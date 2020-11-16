@@ -1,70 +1,155 @@
-# Getting Started with Create React App
+# Idols Initiatives
+* A React and GraphQL site to browse celebrities' foundations in order to raise awareness and donations for charitible causes.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![License](https://img.shields.io/badge/license-ISC-brightgreen)
+![Language](https://img.shields.io/github/languages/top/taylornyquist/idols-initiatives)
+![Last commit](https://img.shields.io/github/last-commit/taylornyquist/idols-initiatives)
+![Last commit](https://img.shields.io/github/contributors/taylornyquist/idols-initiatives)
 
-## Available Scripts
+![HTML](https://img.shields.io/badge/-HTML-brightgreen) ![CSS](https://img.shields.io/badge/-CSS-green) ![javascript](https://img.shields.io/badge/-javascript-yellowgreen) ![Node.js](https://img.shields.io/badge/-Node.js-yellow) ![Express](https://img.shields.io/badge/-Express.js-orange) ![MongoDB](https://img.shields.io/badge/-MongoDB-red) ![React](https://img.shields.io/badge/-React-blue) ![React-Bootstrap](https://img.shields.io/badge/-React_Bootstrap-lightgrey) ![Redux](https://img.shields.io/badge/-Redux-blueviolet) ![GraphQL](https://img.shields.io/badge/-GraphQL-ff69b4) ![Apollo](https://img.shields.io/badge/-Apollo-9cf) ![GraphQL](https://img.shields.io/badge/-GraphQL-brightgreen)
 
-In the project directory, you can run:
+## Description
+* This is a charity hub to find out what your favorite athlete, musician, entrepreneur or local hero's foundation is.  Here you will find information about each celebrity's foundation as well as links to the foundation's homepage and the celebrity's twitter so you can get involved and contribute your time or money.  Users are also able to create a username and login to add different foundations to their hub and follow the work they are doing.
 
-### `npm start`
+* The backend is a Node.js server hosted on Heroku utilizing a MongoDB Atlas NoSQL via GraphQL and Apollo Server.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* The frontend was built using React, Bootstrap and Apollo Provider.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Links
+* [GitHub Repo Link](https://github.com/taylornyquist/idols-initiatives)
+* [Link to Deployed Application](https://radiant-temple-46938.herokuapp.com/)
 
-### `npm test`
+## Screen Shots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="./client/public/screen-shots/screen-shot1.png" alt="" />
+<img src="./client/public/screen-shots/screen-shot2.png" alt="" />
+<img src="./client/public/screen-shots/screen-shot3.png" alt="" />
+<img src="./client/public/screen-shots/screen-shot4.png" alt="" />
+<img src="./client/public/screen-shots/screen-shot5.png" alt="" />
+<img src="./client/public/screen-shots/screen-shot6.png" alt="" />
+<img src="./client/public/screen-shots/screen-shot7.png" alt="" />
+<img src="./client/public/screen-shots/screen-shot8.png" alt="" />
 
-### `npm run build`
+## Table of Contents
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* [Usage](#usage)
+* [Installation](#installation)
+* [Run](#run)
+* [Technology](#technology)
+* [Questions](#questions)
+* [Contribution](#contribution)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Usage
+Visit the Heroku [link](https://radiant-temple-46938.herokuapp.com/) to use the deployed application.  There you can create a login, browse foundations and add/remove foundations from your hub.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run application locally, go to GitHub to clone the repo to your machine.
 
-### `npm run eject`
+## Installation
+To install necessary dependencies, run the following command:
+```
+npm install
+```
+This should install the following dependencies into package.json:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Root package.json:
+```
+"dependencies": {
+    "if-env": "^1.0.4"
+},
+"devDependencies": {
+    "concurrently": "^5.2.0"
+} 
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Server package.json:
+```
+"dependencies": {
+    "apollo-server-express": "^2.15.0",
+    "bcrypt": "^4.0.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.10"
+},
+"devDependencies": {
+    "nodemon": "^2.0.3"
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Client package.json:
+```
+"dependencies": {
+    "@apollo/react-hooks": "^3.1.5",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "apollo-boost": "^0.4.9",
+    "bootstrap": "^4.4.1",
+    "graphql": "^15.1.0",
+    "graphql-tag": "^2.10.3",
+    "jwt-decode": "^2.2.0",
+    "react": "^17.0.1",
+    "react-bootstrap": "1.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "4.0.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "web-vitals": "^0.2.4",
+    "workbox-background-sync": "^5.1.4",
+    "workbox-broadcast-update": "^5.1.4",
+    "workbox-cacheable-response": "^5.1.4",
+    "workbox-core": "^5.1.4",
+    "workbox-expiration": "^5.1.4",
+    "workbox-google-analytics": "^5.1.4",
+    "workbox-navigation-preload": "^5.1.4",
+    "workbox-precaching": "^5.1.4",
+    "workbox-range-requests": "^5.1.4",
+    "workbox-routing": "^5.1.4",
+    "workbox-strategies": "^5.1.4",
+    "workbox-streams": "^5.1.4"
+  },
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Run
+First, seed the data:
+```
+npm run seed
+```
 
-## Learn More
+To run the application as a local host, run:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Technology
+This application used the following technology:
 
-### Code Splitting
+* HTML
+* CSS
+* JavaScript
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose JS
+* React
+* React Router
+* React Bootstrap
+* React Redux
+* Redux DevTools
+* GraphQL
+* Apollo
+* JSON Web Tokens
+* bcrypt
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Questions
+If you have any questions about the repo, open an issue or contact us directly via GitHub.  You can find more of our work at the GitHub links below.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contribution
+* [Mike Portu](https://github.com/mlportu)
+* [Jacob Daughtry](https://github.com/akutozo)
+* [Taylor Nyquist](https://github.com/taylornyquist)
